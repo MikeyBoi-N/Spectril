@@ -1,11 +1,120 @@
-body {
-    background-color: #121212;
-    color: white;
-    font-family: sans-serif;
-    text-align: center;
-    padding-top: 50px;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    --midnight-blue: #0a192f;
+    --slate-gray: #8892b0;
+    --black: #000000;
+    --aqua: #64ffda;
+    --teal: #00c7b7;
 }
 
-a {
-    color: #bb86fc;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--midnight-blue);
+    color: var(--slate-gray);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 1rem 2rem;
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    color: var(--aqua);
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: var(--slate-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--aqua);
+}
+
+main {
+    padding-top: 60px; /* Header height */
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), url('https://images.unsplash.com/photo-1500964757637-c85e8a162699?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--aqua);
+    color: var(--aqua);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--aqua);
+    color: var(--midnight-blue);
+}
+
+section {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #0a142f;
 }
