@@ -8,54 +8,79 @@
     <link rel="icon" href="public/icons/icon.png" type="image/png">
 </head>
 <body>
+    <div class="hero-background"></div>
     <header>
         <nav>
             <a href="#home" class="logo">
                 <img src="public/icons/icon.png" alt="Spectril Logo" class="logo-img">
                 <span>Spectril</span>
-            </a>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#technology">Technology</a></li>
                 <li><a href="#applications">Applications</a></li>
                 <li><a href="#data">Data</a></li>
                 <li><a href="#sponsorship">Sponsorship</a></li>
-                <li><a href="about.html">About</a></li>
+                <li class="about-link-desktop"><a href="about.html">About</a></li>
             </ul>
+            <ul class="nav-links-mobile">
+                <li><a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a></li>
+            </ul>
+            </ul>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section id="home" class="hero">
+        <section id="home" class="hero home-section">
             <div class="hero-content">
-                <h1>Bringing Tech to our Waters</h1>
+                <h1>BRINGING TECH TO OUR WATERS</h1>
             </div>
-        </section>
-
-        <section id="technology">
-            <h2>Technology</h2>
-            <p>Spectril specializes in developing high-precision Raman spectrophotometers, a powerful technique that relies on the inelastic scattering of monochromatic light to yield detailed chemical and molecular fingerprints of substances. This non-destructive technique is superior for analysis because the resulting spectra reflect the unique rotational-vibrational structure of molecules, enabling unambiguous identification. Our advanced systems utilize optimal laser excitation wavelengths, such as the popular 785 nm system, which provides the best balance of signal strength and minimized fluorescence for efficient analysis of most organic materials. Spectril's Raman devices are designed for high resolution and sensitivity, often incorporating technologies like holographic filters to eliminate resonant scattered radiation and enhance detection in complex matrices.</p>
-        </section>
-
-        <section id="applications">
-            <h2>Applications</h2>
-            <p>Spectril's Raman spectrophotometers excel in critical environmental and industrial applications, including the detection and characterization of microplastics. Our core capability is achieving highly specific identification of polymer types based on distinct molecular vibrations, which is crucial for monitoring contamination across complex aquatic and terrestrial environments. Beyond microplastics, the versatility of Raman spectroscopy allows for qualitative and quantitative analysis of molecular pollutants, such as organic and inorganic substances dissolved in water samples. This includes critical water quality monitoring for anions like nitrate, nitrite, and sulfate, offering an alternative to time-consuming wet chemical methods. Our innovative integration of spectral techniques with machine learning expands utility for assessing biodiversity, climate change modeling, and complex pollution assessment.</p>
-        </section>
-
-
-        <section id="sponsorship">
-            <h2>Sponsorship & Support</h2>
-            <p>Spectril’s pioneering research relies on a commitment to robust funding and critical institutional partnerships that drive environmental solutions forward. Our R&D activities align with global efforts and benefit from the type of significant governmental and academic grants that underpin complex scientific advancements. This dedication is crucial because addressing pervasive challenges, such as microplastic pollution, demands a multidisciplinary approach supported by diverse expertise and financial backing. Collaborative projects often involve partnerships with bodies like the National Science Foundation (NSF) and organizations like the Australian Research Council (ARC) Linkage grant scheme, ensuring resources for long-term monitoring and data analysis. By engaging with these critical sponsors and contributing to major repositories like the NOAA Microplastics Database, Spectril helps lay the groundwork for evidence-based mitigation and standardized monitoring protocols worldwide</p>
-        </section>
-
-        <section id="data">
-            <h2>Data</h2>
-            <p>Spectril excels at transforming raw spectroscopic measurements into actionable insights using advanced data processing and machine learning (ML). We deploy sophisticated algorithms, including Support Vector Machines and deep learning models like Convolutional Neural Networks, to automate classification tasks and uncover intricate relationships within complex datasets. For quantitative applications, such as pollutant concentration determination, we utilize chemometric approaches and multivariate analysis software, which integrate mathematical algorithms like Partial Least Squares (PLS) or Support Vector Regression (SVR). Our focus on data fidelity includes leveraging specialized techniques like adaptive iterative reweighted penalized least squares (airPLS) or hybrid deep learning models for automated, enhanced baseline correction to improve the signal-to-noise ratio and preserve Raman peak integrity. Crucially, the accuracy and reliability of Spectril’s predictive models depend heavily on on maintaining robust, high-quality datasets and continuous validation against complex, real-world environmental variables.</p>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Spectril. All rights reserved.</p>
-    </footer>
+    <section id="technology" class="technology-section" style="background-image: url('public/images/blue_lab.png');">
+        <div class="content-wrapper">
+            <h2>THE TECH</h2>
+            <p>Spectril specializes in developing high-precision Raman spectrophotometers, a powerful technique that relies on the inelastic scattering of monochromatic light to yield detailed chemical and molecular fingerprints of substances.
+            
+            This non-destructive technique is superior for analysis because the resulting spectra reflect the unique rotational-vibrational structure of molecules, enabling unambiguous identification. Our advanced systems utilize optimal laser excitation wavelengths, such as the popular 785 nm system, which provides the best balance of signal strength and minimized fluorescence for efficient analysis of most organic materials. Spectril's Raman devices are designed for high resolution and sensitivity, often incorporating technologies like holographic filters to eliminate resonant scattered radiation and enhance detection in complex matrices.</p>
+        </div>
+    </section>
+
+    <section id="applications" class="technology-section" style="background-image: url('public/images/iceberg.png');">
+        <div class="content-wrapper">
+            <h2>APPLICATIONS</h2>
+            <p>Spectril's Raman spectrophotometers excel in critical environmental and industrial applications, including the detection and characterization of microplastics. Our core capability is achieving highly specific identification of polymer types based on distinct molecular vibrations, which is crucial for monitoring contamination across complex aquatic and terrestrial environments. Beyond microplastics, the versatility of Raman spectroscopy allows for qualitative and quantitative analysis of molecular pollutants, such as organic and inorganic substances dissolved in water samples. This includes critical water quality monitoring for anions like nitrate, nitrite, and sulfate, offering an alternative to time-consuming wet chemical methods. Our innovative integration of spectral techniques with machine learning expands utility for assessing biodiversity, climate change modeling, and complex pollution assessment.
+
+            </p>
+        </div>
+    </section>
+
+    <section id="data" class="technology-section" style="background-image: url('public/images/potomac_sattelite.png');">
+        <div class="content-wrapper">
+            <h2>DATA</h2>
+            <p>Spectril excels at transforming raw spectroscopic measurements into actionable insights using advanced data processing and machine learning (ML). We deploy sophisticated algorithms, including Support Vector Machines and deep learning models like Convolutional Neural Networks, to automate classification tasks and uncover intricate relationships within complex datasets. For quantitative applications, such as pollutant concentration determination, we utilize chemometric approaches and multivariate analysis software, which integrate mathematical algorithms like Partial Least Squares (PLS) or Support Vector Regression (SVR). Our focus on data fidelity includes leveraging specialized techniques like adaptive iterative reweighted penalized least squares (airPLS) or hybrid deep learning models for automated, enhanced baseline correction to improve the signal-to-noise ratio and preserve Raman peak integrity. Crucially, the accuracy and reliability of Spectril’s predictive models depend heavily on on maintaining robust, high-quality datasets and continuous validation against complex, real-world environmental variables.
+
+            </p>
+        </div>
+    </section>
+
+    <section id="sponsorship" class="technology-section" style="background-image: url('public/images/fuzzy_background.png');">
+        <div class="content-wrapper">
+            <h2>SPONSORS</h2>
+            <p>Our research relies on a commitment to robust funding and critical institutional partnerships that drive environmental solutions forward. Our R&D activities align with global efforts and benefit from the type of significant governmental and academic grants that underpin complex scientific advancements. This dedication is crucial because addressing pervasive challenges, such as microplastic pollution, demands a multidisciplinary approach supported by diverse expertise and financial backing. Collaborative projects often involve partnerships with bodies like the National Science Foundation (NSF) and organizations like the Australian Research Council (ARC) Linkage grant scheme, ensuring resources for long-term monitoring and data analysis. By engaging with these critical sponsors and contributing to major repositories like the NOAA Microplastics Database, Spectril helps lay the groundwork for evidence-based mitigation and standardized monitoring protocols worldwide
+
+            </p>
+            <div class="center-button" style="margin-top: 2rem; margin-right: 2rem; text-align: right;">
+                <a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a>
+            </div>
+        </div>
+        
+    </section>
+
 
     <script src="script.js"></script>
 </body>
