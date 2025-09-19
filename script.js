@@ -9,3 +9,35 @@ const navSlide = () => {
 }
 
 navSlide();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const typewriterElement = document.getElementById('typewriter');
+    const text = "BRINGING TECH TO OUR WATERS";
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            typewriterElement.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 120);
+        }
+    }
+
+    type();
+
+    const sections = document.querySelectorAll('.technology-section');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});

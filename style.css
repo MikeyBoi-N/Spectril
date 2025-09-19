@@ -102,10 +102,31 @@ main {
     z-index: -1;
     mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
 }
+
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--aqua); }
+}
 .hero-content h1 {
     font-size: 8rem;
     font-weight: 700;
     margin-bottom: 8rem;
+    max-width: 1200px;
+    display: inline-block;
+    padding-right: 2px; /* Prevent layout shift from border */
+    word-break: break-word;
+}
+
+.typing-effect {
+    border-right: .15em solid var(--aqua);
+    animation: blink-caret .75s step-end infinite;
+}
+
+@media screen and (max-width: 850px) {
+    .hero-content h1 {
+        font-size: 12vw;
+    }
 }
 
 .cta-button {
@@ -123,6 +144,10 @@ main {
     color: var(--midnight-blue);
 }
 
+.typing-container {
+    display: inline-block;
+}
+
 .home-section {
     /* Styles specific to the home section can go here */
 }
@@ -130,7 +155,7 @@ main {
 .technology-section {
     width: 100%;
     max-width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -143,32 +168,6 @@ main {
 
 }
 
-
-.applications-section {
-    width: 100%;
-    max-width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    color: white;
-    padding: 0;
-    mask-image: linear-gradient(to top, black 85%, transparent 100%);
-
-}
-
-
-.data-section,
-.sponsorship-section {
-    padding: 4rem 2rem;
-    max-width: 1000px;
-    margin-right: 20px;
-    scroll-margin-top: 100px;
-    font-size: large;
-}
 
 .content-wrapper {
     max-width: 1000px;
@@ -220,7 +219,27 @@ footer {
     padding: 10px;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
+    .hero-content h1 {
+        font-size: 15vw;
+    }
+
+    .technology-section h2 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .content-wrapper {
+        margin: 1rem;
+        padding: 2rem;
+        font-size: medium;
+        text-align: center;
+    }
+
+    .technology-section {
+        justify-content: center;
+    }
+
     .nav-links {
         display: none;
     }
@@ -229,12 +248,14 @@ footer {
         display: none;
         position: absolute;
         right: 0;
-        top: 85px; /* Adjust as needed */
+        top: 85px;
+        background: rgba(15, 17, 20, 0.5);
         backdrop-filter: blur(10px);
         border-radius: 20px;
         flex-direction: column;
         width: 100%;
         text-align: right;
+        padding: 1rem;
     }
 
     .nav-links-mobile.active {
@@ -242,11 +263,54 @@ footer {
     }
 
     .nav-links-mobile li {
-        padding: 0px;
+        padding: 10px;
     }
 
     .hamburger {
         display: block;
+    }
+
+    .about-link-desktop {
+        display: none;
+    }
+
+    .about-link-mobile {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .hero-content h1 {
+        font-size: 18vw;
+    }
+
+    .content-wrapper {
+        margin: 0.8rem;
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hero-content h1 {
+        font-size: 20vw;
+    }
+
+    .technology-section h2 {
+        font-size: 2rem;
+    }
+
+    .content-wrapper {
+        margin: 0.5rem;
+        padding: 1rem;
+        font-size: small;
+    }
+
+    .nav-links-mobile {
+        align-items: center;
+    }
+
+    .nav-links-mobile li {
+        padding: 5px;
     }
 }
 
@@ -279,4 +343,45 @@ footer {
 .center-button {
     text-align: center;
     margin-top: 2rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInSwipe {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-background {
+    animation: fadeIn  .9s ease-in-out .8s forwards;
+    opacity: 0;
+}
+
+.technology-section {
+    opacity: 0;
+    transition: opacity .8s ease-in-out;
+}
+
+.technology-section.visible {
+    opacity: 1;
+}
+
+.content-wrapper {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity .8s ease-in-out, transform .8s ease-in-out;
+}
+
+.technology-section.visible .content-wrapper {
+    opacity: 1;
+    transform: translateX(0);
 }
