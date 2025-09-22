@@ -6,7 +6,6 @@
     <title>Spectril</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="public/icons/icon.png" type="image/png">
-    <link rel="stylesheet" href="gradualBlur/gradualBlur.css">
 </head>
 <body>
     <div class="hero-background"></div>
@@ -19,15 +18,10 @@
                 <li><a href="#technology">Technology</a></li>
                 <li><a href="#applications">Applications</a></li>
                 <li><a href="#data">Data</a></li>
-                <li><a href="#sponsorship">Sponsorship</a></li>
-                <li class="about-link-desktop"><a href="about.html">About</a></li>
+                <li><a href="plans.html">The Device</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
             <ul class="nav-links-mobile">
-                <li><a href="#technology">Technology</a></li>
-                <li><a href="#applications">Applications</a></li>
-                <li><a href="#data">Data</a></li>
-                <li><a href="#sponsorship">Sponsorship</a></li>
-                <li class="about-link-mobile"><a href="about.html">About</a></li>
                 <li><a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a></li>
             </ul>
             <div class="hamburger">
@@ -75,73 +69,54 @@
 
     <section id="sponsorship" class="technology-section" style="background-image: url('public/images/fuzzy_background.png');">
         <div class="content-wrapper">
-            <div class="sponsor-text">
-                <h2>SPONSORS</h2>
-                <p>Our research relies on a commitment to robust funding and critical institutional partnerships that drive environmental solutions forward. Our R&D activities align with global efforts and benefit from the type of significant governmental and academic grants that underpin complex scientific advancements. This dedication is crucial because addressing pervasive challenges, such as microplastic pollution, demands a multidisciplinary approach supported by diverse expertise and financial backing. Collaborative projects often involve partnerships with bodies like the National Science Foundation (NSF) and organizations like the Australian Research Council (ARC) Linkage grant scheme, ensuring resources for long-term monitoring and data analysis. By engaging with these critical sponsors and contributing to major repositories like the NOAA Microplastics Database, Spectril helps lay the groundwork for evidence-based mitigation and standardized monitoring protocols worldwide
+            <h2>SPONSORS</h2>
+            <p>Our research relies on a commitment to robust funding and critical institutional partnerships that drive environmental solutions forward. Our R&D activities align with global efforts and benefit from the type of significant governmental and academic grants that underpin complex scientific advancements. This dedication is crucial because addressing pervasive challenges, such as microplastic pollution, demands a multidisciplinary approach supported by diverse expertise and financial backing. Collaborative projects often involve partnerships with bodies like the National Science Foundation (NSF) and organizations like the Australian Research Council (ARC) Linkage grant scheme, ensuring resources for long-term monitoring and data analysis. By engaging with these critical sponsors and contributing to major repositories like the NOAA Microplastics Database, Spectril helps lay the groundwork for evidence-based mitigation and standardized monitoring protocols worldwide
 
-                </p>
-                <div class="center-button">
-                    <a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a>
-                </div>
+            </p>
+            <div class="center-button">
+                <a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a>
             </div>
-        </div>
-        <div class="sponsor-carousel">
-            <!-- Sponsors will be dynamically inserted here by JavaScript -->
         </div>
     </section>
-        <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Mailing Address</h4>
-                    <p> Spectril Labs </p>
-                    <p>12345 Scientists Cliffs,</p>
-                    <p>Calvert County, MD, USA 20764</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Michael Nehring</p>
-                    <p>Founder & Principal Engineer</p>
-                    <p>Email: mika.nehring@gmail.com</p>
-                    <p>Phone: (801)-884-3316</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Social Media</h4>
-                    <ul>
-                        <li><a href="#">Threads</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">GitHub</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Links</h4>
-                    <ul>
-                        <li><a href="#">Dummy Link 1</a></li>
-                        <li><a href="#">Dummy Link 2</a></li>
-                        <li><a href="#">Dummy Link 3</a></li>
-                    </ul>
-                </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Mailing Address</h4>
+                <p> Spectril Labs </p>
+                <p>12345 Scientists Cliffs,</p>
+                <p>Calvert County, MD, USA 20764</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Spectril Labs. All rights reserved.</p>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Michael Nehring</p>
+                <p>Founder & Principal Engineer</p>
+                <p>Email: mika.nehring@gmail.com</p>
+                <p>Phone: (801)-884-3316</p>
             </div>
-        </footer>
+            <div class="footer-section">
+                <h4>Social Media</h4>
+                <ul>
+                    <li><a href="#">Threads</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">GitHub</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#">Dummy Link 1</a></li>
+                    <li><a href="#">Dummy Link 2</a></li>
+                    <li><a href="#">Dummy Link 3</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Spectril Labs. All rights reserved.</p>
+        </div>
+    </footer>
 
 
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="sponsors.js"></script>
     <script src="script.js"></script>
-    <script src="gradualBlur/gradualBlur.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            new GradualBlur({
-                position: 'top',
-                height: '12rem',
-                strength: 3,
-                divCount: 10,
-                curve: 'ease-out',
-                zIndex: 9
-            });
-        });
-    </script>
 </body>
 </html>

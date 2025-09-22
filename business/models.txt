@@ -1,0 +1,28 @@
+Spectril Green (532 nm)
+    Entry-level, cost-effective model.
+    Powered by a 532 nm laser, chosen for its affordability, reliability, and wide support.
+    Ideal for organizations beginning environmental testing or proof-of-concept projects.
+
+Spectril Red (785 nm)
+    Mid-tier model with enhanced sensitivity.
+    Equipped with a 785 nm laser for higher efficacy in Raman spectroscopy.
+    Designed for more precise detection of nitrates, sulfates, phosphates, and other pollutants.
+    Improved signal-to-noise ratio for low-concentration chemical detection.
+    Tailored for environmental researchers, labs, and regulatory agencies.
+    Balanced price-to-performance ratio for both academic and industrial users.
+
+Spectril Pro
+    Top-tier research and field model.
+    Adds remote Raman spectrography: analyze samples from up to 5 meters without direct contact.
+    Integrated microscope for real-time visualization of water samples.
+    Includes additional environmental sensors for comprehensive analysis: dissolved oxygen, pH, conductivity, and total dissolved solids.
+    Scalable storage solutions for extended research projects
+
+Core Features Across All Models
+    Raman spectrography for chemical and pollutant detection.
+    GPS tracking for geotagged sample logging.
+    Each model can be pre-configured for long duration field use with periodic data logging.
+    Real-time visualization of spectra for immediate decision-making.
+    Open API support for integration with third-party analytics platforms.
+    Minimal calibration requirements to keep operation simple and efficient.
+    Features automated calibration routines for maximum accuracy.
