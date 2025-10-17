@@ -8,97 +8,33 @@
     <link rel="icon" href="public/icons/icon.png" type="image/png">
 </head>
 <body>
-    <div class="hero-background"></div>
-    <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="public/icons/icon.png" alt="Spectril Logo" class="logo-img">
-                <span>Spectril</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html#technology">Technology</a></li>
-                <li><a href="index.html#applications">Applications</a></li>
-                <li><a href="index.html#data">Data</a></li>
-                <li><a href="plans.html">The Device</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-            <ul class="nav-links-mobile">
-                <li><a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a></li>
-            </ul>
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </nav>
-    </header>
+    <header></header>
 
     <main>
         <section>
-            <div class="content-wrapper about-content-wrapper">
-                <h2>Our Mission</h2>
-                <p>At Spectril, we are dedicated to advancing environmental science through cutting-edge technology. Our mission is to develop high-precision Raman spectrophotometers that provide detailed chemical and molecular analysis for a wide range of applications. We believe that by making this technology more accessible and powerful, we can contribute to a cleaner, healthier planet.</p>
-                
-                <h2>The Founder</h2>
-                <p>Michael Nehring, the Founder & Principal Engineer of Spectril, is a passionate innovator with a deep commitment to environmental stewardship. With a background in engineering and a drive to solve complex challenges, Michael leads our team in pushing the boundaries of what's possible in spectroscopic analysis.</p>
-                <div class="center-button">
-                    <a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a>
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>Our Mission</h2>
+                    <p>At Spectril, we are dedicated to advancing environmental science through cutting-edge technology. Our mission is to develop high-precision Raman spectrophotometers that provide detailed chemical and molecular analysis for a wide range of applications. We believe that by making this technology more accessible and powerful, we can contribute to a cleaner, healthier planet.</p>
+                    
+                    <h2>The Founder</h2>
+                    <p>Michael Nehring, the Founder & Principal Engineer of Spectril, is a passionate innovator with a deep commitment to environmental stewardship. With a background in engineering and a drive to solve complex challenges, Michael leads our team in pushing the boundaries of what's possible in spectroscopic analysis.</p>
+
+                    <h2>Note from the Founder</h2>
+                    <p style="font-size: 20px; font-weight: bold; font-family: monospace;">Hello!! Look, I gotta be real with you for a second here... <br>I have a day job, and this whole thing is something I'm truly just passionate about. It isn't some hidden weird company trying to beat the market. I personally just enjoy the science, the art, the coding, the engineering, everything that comes with this project. Doing this gives me purpose, and I couldn't ask for more. <br>Unfortunately, the world can ask for more. A lot more. (I mean money). This whole project is paid for by me right now. I would love to take this further, but realistically it's hard to go at the pace I want - given the financial situation. Development is slow, but it is ongoing. <br>You don't have to sponsor me if you want to support me because following along with me as I try to make this thing real is enough <3 </p>
+                    <div class="center-button">
+                        <a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Mailing Address</h4>
-                <p> Spectril Labs </p>
-                <p>12345 Scientists Cliffs,</p>
-                <p>Calvert County, MD, USA 20764</p>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p>Michael Nehring</p>
-                <p>Founder & Principal Engineer</p>
-                <p>Email: mika.nehring@gmail.com</p>
-                <p>Phone: (801)-884-3316</p>
-            </div>
-            <div class="footer-section">
-                <h4>Social Media</h4>
-                <ul>
-                    <li><a href="#">Threads</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">GitHub</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Links</h4>
-                <ul>
-                    <li><a href="#">Dummy Link 1</a></li>
-                    <li><a href="#">Dummy Link 2</a></li>
-                    <li><a href="#">Dummy Link 3</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Spectril Labs. All rights reserved.</p>
-        </div>
-    </footer>
+    <footer></footer>
 
+    <script src="navbar.js"></script>
+    <script src="footer.js"></script>
     <script>
-        // Navigation functionality
-        const navSlide = () => {
-            const hamburger = document.querySelector('.hamburger');
-            const nav = document.querySelector('.nav-links-mobile');
-
-            hamburger.addEventListener('click', () => {
-                nav.classList.toggle('active');
-                hamburger.classList.toggle('toggle');
-            });
-        }
-
-        navSlide();
-
         document.addEventListener('DOMContentLoaded', function() {
             // Typewriter effect
             const typewriterElement = document.getElementById('typewriter');

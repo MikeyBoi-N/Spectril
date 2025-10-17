@@ -5,118 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spectril</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index-style.css">
     <link rel="icon" href="public/icons/icon.png" type="image/png">
 </head>
 <body>
-    <div class="hero-background"></div>
-    <header>
-        <nav>
-            <a href="#home" class="logo">
-                <img src="public/icons/icon.png" alt="Spectril Logo" class="logo-img">
-                <span>Spectril</span>
-            <ul class="nav-links">
-                <li><a href="#technology">Technology</a></li>
-                <li><a href="#applications">Applications</a></li>
-                <li><a href="#data">Data</a></li>
-                <li><a href="plans.html">The Device</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-            <ul class="nav-links-mobile">
-                <li><a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a></li>
-            </ul>
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </nav>
-    </header>
-
+    <header></header>
+    
     <main>
-        <section id="home" class="hero home-section">
-            <div class="hero-content">
-                <h1><span id="typewriter" class="typing-effect"></span></h1>
+        <section class="content-section hero-section-spectril">
+            <div class="section-content hero-content">
+                <div class="section-text hero-text">
+                    <h1>The Problem</h1>
+                    <h3>Microplastics contaminate our ecosystems. <br>Nitrate pollution triggers eutrophication. <br>Both endanger public health. <br>We can't fix what we can't detect, and conventional testing takes days & costs thousands</h3>
+                    
+                    <h1>Our Solution</h1>
+                    <h3>Spectril offers high-precision, field-deployable Raman spectroscopy at a very low cost thanks to advanced models and integration of AI technology. <br>Spectril's detection also extends beyond just Nitrates and Microplastics...</h3>
+                </div>
+                <div class="section-image hero-image">
+                    <img src="public/images/hero_promo.png" alt="Spectril Device">
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section class="content-section tech-bg">
+            <div class="tech-content">
+                <h2 class="tech-title">TECHNOLOGY</h2>
+                <p class="tech-intro">The fundamental operating principle of Spectril devices is Raman spectrography. This non-destructive technique analyzes the inelastic scattering of monochromatic laser light interacting with molecular vibrations within a sample. Because rotational-vibrational molecular structures provide a unique "fingerprint" for each molecule, Raman spectra allow for the unambiguous identification and quantitative measurement of compounds.</p>
+                
+                <p class="tech-intro">Spectril devices overcome the inherent challenges of field spectroscopy through sophisticated optical engineering and intelligent sensor integration. At the core of each system, holographic filters suppress the intense Rayleigh scattering that occurs at the laser excitation line, allowing for clear detection of the Stokes and anti-Stokes Raman signals that carry molecular identification information</p>
+
+                <div class="tech-trifold">
+                    <div class="tech-column">
+                        <h3>Spectril Green</h3>
+                        <p class="model-subtitle">532 nm Laser</p>
+                        <p>Entry-level, cost-effective model powered by a 532 nm laser, chosen for its affordability, reliability, and wide support.</p>
+                        <ul>
+                            <li>High excitation efficiency (∝λ⁻⁴)</li>
+                            <li>Wide spectral range: 65-4000 cm⁻¹</li>
+                            <li>Ideal for inorganic materials and minerals</li>
+                            <li>Perfect for proof-of-concept projects</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-column">
+                        <h3>Spectril Red</h3>
+                        <p class="model-subtitle">785 nm Laser</p>
+                        <p>Mid-tier model with enhanced sensitivity, equipped with a 785 nm laser for higher efficacy in Raman spectroscopy.</p>
+                        <ul>
+                            <li>Optimized for 90% of Raman-active materials</li>
+                            <li>Reduced fluorescence interference</li>
+                            <li>Enhanced detection of nitrates, sulfates, phosphates</li>
+                            <li>Improved signal-to-noise ratio for low concentrations</li>
+                            <li>Balanced price-to-performance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-column">
+                        <h3>Spectril Pro</h3>
+                        <p class="model-subtitle">Advanced Research</p>
+                        <p>Top-tier research and field model with remote sensing capabilities and comprehensive environmental monitoring.</p>
+                        <ul>
+                            <li>Remote Raman analysis up to 5 meters</li>
+                            <li>Integrated microscope for real-time visualization</li>
+                            <li>Additional sensors: dissolved oxygen, pH, conductivity, TDS</li>
+                            <li>Scalable storage for extended projects</li>
+                            <li>Turbidity correction for data quality</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p class="tech-intro"><br>The environmental sensor suite integrated into Spectril devices extends far beyond basic spectroscopic measurement, transforming each unit into a comprehensive water quality monitoring platform. Parameters such as conductivity, dissolved oxygen, pH, and total dissolved solids are measured concurrently with spectral data, providing the contextual information essential for accurate pollutant quantification in natural waters. Conductivity measurements prove particularly valuable as they correlate strongly with nitrate concentration variability, often indicating ionic contributions from agricultural runoff or industrial discharge. Turbidity sensing plays a critical role in optical interference correction, allowing the system to compensate for light scattering effects that would otherwise degrade spectral quality in sediment-laden or algae-rich samples.</p>
+
+                <p class="tech-intro">Every Spectril device is built around a Raspberry Pi embedded system, chosen specifically for its minimal power consumption, compact form factor, and extensive community support for field instrumentation applications. This processing architecture enables sophisticated onboard data analysis, real-time spectral visualization, and automated calibration routines while maintaining the portability essential for remote deployment. Standard GPS integration across all models ensures that every measurement is geographically referenced, creating spatially aware datasets that can be mapped and analyzed to reveal pollution patterns, identify contamination sources, and track water quality trends over time. The combination of embedded processing, comprehensive sensing, and location awareness makes Spectril devices uniquely suited for both stationary monitoring stations and mobile survey applications.</p>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+            <section class="cards-grid">
+                <div class="application-card">
+                    <img src="public/images/applications_section/microplastics.png" alt="Microplastics">
+                </div>
+                <div class="application-card">
+                    <img src="public/images/applications_section/skip_the_lab.png" alt="Skip The Lab">
+                </div>
+                <div class="application-card">
+                    <img src="public/images/applications_section/nutrient_pollution.png" alt="Nutrient Pollution">
+                </div>
+                <div class="application-card">
+                    <img src="public/images/applications_section/ai_powered.png" alt="AI Powered">
+                </div>
+            </section>
+
+        <!-- Data Section -->
+        <section class="content-section alt-bg">
+            <div class="section-content reverse">
+                <div class="section-text">
+                    <h2>DATA</h2>
+                    <p>Spectral Baseline Correction: Accurate analysis in Raman spectroscopy requires robust baseline correction to isolate the weak molecular signals from strong background interference, often caused by fluorescence. Spectril systems implement automated calibration routines that utilize techniques designed for optimal performance, such as algorithms based on penalized least squares (e.g., AirPLS) or newer hybrid deep learning methods. These advanced methods significantly enhance the signal-to-noise ratio (SNR) by removing polynomial and exponential backgrounds derived from fluorescence or Rayleigh scattering, often achieving tenfold improvements over raw spectra</p>
+                    
+                    <h3><br>Spectral Preprocessing and Data Quality</h3>
+                    <p>The foundation of Spectril's analytical capabilities rests on rigorous spectral preprocessing that transforms raw Raman measurements into chemically meaningful signals. Automated baseline correction algorithms, particularly those based on penalized least squares such as Asymmetrically Reweighted Penalized Least Squares (AirPLS), systematically remove the polynomial and exponential backgrounds that arise from fluorescence and residual Rayleigh scattering. These methods adaptively fit the baseline while preserving the integrity of genuine Raman peaks, often achieving signal-to-noise ratio improvements exceeding tenfold compared to uncorrected spectra. More recent hybrid approaches incorporating deep learning architectures further enhance correction performance in challenging field conditions where fluorescence interference varies unpredictably. This preprocessing pipeline is complemented by comprehensive data hygiene protocols including outlier detection using statistical distance metrics, intelligent missing value imputation based on spectral similarity, and normalization schemes that account for variations in laser power and integration time across measurement sessions.</p>
+
+                    <h3><br>Chemometric Analysis and Quantification</h3>
+                    <p>For quantitative pollutant analysis, Spectril employs chemometric techniques that exploit the fundamental relationship between Raman intensity and molecular concentration. The system maintains an extensive reference spectral library, enabling the construction of calibration models through multivariate regression methods. Partial Least Squares (PLS) regression proves particularly valuable for complex environmental samples where spectral overlap between chemical species creates analytical challenges that univariate approaches cannot resolve. PLS decomposes the spectral data into latent variables that capture the maximum covariance between the measured spectra and target analyte concentrations, enabling simultaneous quantification of multiple species even in matrices as challenging as estuarine waters with variable salinity.</p>
+
+                    <h3><br>Key capabilities include:</h3>
+                    <ul>
+                        <li>Detection limits suitable for regulatory compliance monitoring across environmentally relevant concentration ranges</li>
+                        <li>Simultaneous quantification of multiple chemical species (nitrates, nitrites, phosphates) from a single spectrum</li>
+                        <li>Matrix effect compensation through integration of auxiliary sensor data (conductivity, pH, temperature, dissolved oxygen)</li>
+                    </ul>
+                    <h3><br>Advanced Machine Learning Applications</h3>
+                    <p>When addressing highly nonlinear environmental relationships, Spectril extends beyond traditional chemometric methods to leverage advanced machine learning architectures tailored to specific analytical challenges:<br></p>
+                    <ul>
+                        <li>Microplastic Identification: One-dimensional convolutional neural networks process raw Raman spectra to automatically extract discriminative spectral features characteristic of different polymer types, eliminating the need for manual peak assignment and achieving classification accuracies exceeding traditional methods like Support Vector Machines. The Spectril Pro model's integrated microscopy capability enables complementary image-based classification using two-dimensional CNNs trained to recognize microplastic particles by morphological characteristics, creating a multimodal identification system that cross-validates spectroscopic and visual evidence.</li>
+                        <li>Predictive Water Quality Modeling: For predicting complex water quality dynamics such as seasonal nitrate fluctuations in agricultural watersheds, Generalized Additive Mixed Models (GAMMs) combine the multi-sensor environmental data streams with temporal and spatial covariates, capturing nonlinear relationships through flexible spline-based smoothing functions while accounting for hierarchical data structures arising from repeated measurements at monitoring sites. This sophisticated modeling framework transforms the Spectril platform from a simple analytical instrument into an intelligent environmental monitoring system capable of both immediate pollutant identification and predictive water quality forecasting.<br></li>
+                    </ul>
+                    <h3></h3>
+                    <p></p>
+
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Section -->
+        <section class="sponsors-section">
+            <h2>SPONSORS</h2>
+            <p>Support the development of accessible environmental monitoring technology</p>
+            <div class="center-button">
+                <a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a>
             </div>
         </section>
     </main>
 
-    <section id="technology" class="technology-section" style="background-image: url('public/images/blue_lab.png');">
-        <div class="content-wrapper">
-            <h2>THE TECH</h2>
-            <p>Spectril specializes in developing high-precision Raman spectrophotometers, a powerful technique that relies on the inelastic scattering of monochromatic light to yield detailed chemical and molecular fingerprints of substances.
-            
-            This non-destructive technique is superior for analysis because the resulting spectra reflect the unique rotational-vibrational structure of molecules, enabling unambiguous identification. Our advanced systems utilize optimal laser excitation wavelengths, such as the popular 785 nm system, which provides the best balance of signal strength and minimized fluorescence for efficient analysis of most organic materials. Spectril's Raman devices are designed for high resolution and sensitivity, often incorporating technologies like holographic filters to eliminate resonant scattered radiation and enhance detection in complex matrices.</p>
-        </div>
-    </section>
+    <footer></footer>
 
-    <section id="applications" class="technology-section" style="background-image: url('public/images/iceberg.png');">
-        <div class="content-wrapper">
-            <h2>APPLICATIONS</h2>
-            <p>Spectril's Raman spectrophotometers excel in critical environmental and industrial applications, including the detection and characterization of microplastics. Our core capability is achieving highly specific identification of polymer types based on distinct molecular vibrations, which is crucial for monitoring contamination across complex aquatic and terrestrial environments. Beyond microplastics, the versatility of Raman spectroscopy allows for qualitative and quantitative analysis of molecular pollutants, such as organic and inorganic substances dissolved in water samples. This includes critical water quality monitoring for anions like nitrate, nitrite, and sulfate, offering an alternative to time-consuming wet chemical methods. Our innovative integration of spectral techniques with machine learning expands utility for assessing biodiversity, climate change modeling, and complex pollution assessment.
-
-            </p>
-        </div>
-    </section>
-
-    <section id="data" class="technology-section" style="background-image: url('public/images/potomac_sattelite.png');">
-        <div class="content-wrapper">
-            <h2>DATA</h2>
-            <p>Spectril excels at transforming raw spectroscopic measurements into actionable insights using advanced data processing and machine learning (ML). We deploy sophisticated algorithms, including Support Vector Machines and deep learning models like Convolutional Neural Networks, to automate classification tasks and uncover intricate relationships within complex datasets. For quantitative applications, such as pollutant concentration determination, we utilize chemometric approaches and multivariate analysis software, which integrate mathematical algorithms like Partial Least Squares (PLS) or Support Vector Regression (SVR). Our focus on data fidelity includes leveraging specialized techniques like adaptive iterative reweighted penalized least squares (airPLS) or hybrid deep learning models for automated, enhanced baseline correction to improve the signal-to-noise ratio and preserve Raman peak integrity. Crucially, the accuracy and reliability of Spectril’s predictive models depend heavily on on maintaining robust, high-quality datasets and continuous validation against complex, real-world environmental variables.
-
-            </p>
-        </div>
-    </section>
-
-    <section id="sponsorship" class="technology-section" style="background-image: url('public/images/fuzzy_background.png');">
-        <div class="content-wrapper">
-            <h2>SPONSORS</h2>
-            <p>Our research relies on a commitment to robust funding and critical institutional partnerships that drive environmental solutions forward. Our R&D activities align with global efforts and benefit from the type of significant governmental and academic grants that underpin complex scientific advancements. This dedication is crucial because addressing pervasive challenges, such as microplastic pollution, demands a multidisciplinary approach supported by diverse expertise and financial backing. Collaborative projects often involve partnerships with bodies like the National Science Foundation (NSF) and organizations like the Australian Research Council (ARC) Linkage grant scheme, ensuring resources for long-term monitoring and data analysis. By engaging with these critical sponsors and contributing to major repositories like the NOAA Microplastics Database, Spectril helps lay the groundwork for evidence-based mitigation and standardized monitoring protocols worldwide
-
-            </p>
-            <div class="center-button">
-                <a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Mailing Address</h4>
-                <p> Spectril Labs </p>
-                <p>12345 Scientists Cliffs,</p>
-                <p>Calvert County, MD, USA 20764</p>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p>Michael Nehring</p>
-                <p>Founder & Principal Engineer</p>
-                <p>Email: mika.nehring@gmail.com</p>
-                <p>Phone: (801)-884-3316</p>
-            </div>
-            <div class="footer-section">
-                <h4>Social Media</h4>
-                <ul>
-                    <li><a href="#">Threads</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">GitHub</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Links</h4>
-                <ul>
-                    <li><a href="#">Dummy Link 1</a></li>
-                    <li><a href="#">Dummy Link 2</a></li>
-                    <li><a href="#">Dummy Link 3</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Spectril Labs. All rights reserved.</p>
-        </div>
-    </footer>
-
-
+    <script src="navbar.js"></script>
+    <script src="footer.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

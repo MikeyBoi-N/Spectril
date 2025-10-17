@@ -9,26 +9,31 @@
 }
 
 * {
-    margin: 0;
+    margin: 0px;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    background-color: #070c1c;
+    background-color: #000000;
+    min-height: 100vh;
     color: var(--slate-gray);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
 }
 
+main {
+    background: linear-gradient(to bottom, #4a4a4a 0%, #000000 100%);
+}
+
 header {
     position: fixed;
     top: 30px;
-    left: 30px;
-    right: 30px;
+    left: 20px;
+    right: 20px;
     border-radius: 20px;
     z-index: 10;
-    padding: 1rem 2rem;
+    padding: .5rem 2rem;
     background: rgba(15, 17, 20, 0.5);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -65,14 +70,25 @@ nav ul li { /* links in hamburger menu and normal menu */
     margin-right: 10px;
 }
 
-nav ul li a {
-    color: var(--slate-gray);
+/* Navigation link styles */
+.nav-link {
+    color: white;
     text-decoration: none;
-    transition: color 0.3s ease;
+    padding: 0.5rem 1.25rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-nav ul li a:hover {
-    color: var(--aqua);
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.nav-link.active {
+    background-color: white;
+    color: #000000;
 }
 
 main {
@@ -170,9 +186,9 @@ main {
 
 
 .content-wrapper {
-    max-width: 1000px;
+    min-width: 400px;
     padding: 4rem 2rem;
-    margin: 7rem;
+    margin: 30px;
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -197,6 +213,8 @@ footer {
     color: #ffffff;
     padding: 4rem 2rem 2rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .footer-content {
@@ -276,6 +294,8 @@ footer {
         padding: 2rem;
         font-size: medium;
         text-align: center;
+        background-color: #000000;
+        
     }
 
     .technology-section {
@@ -425,6 +445,11 @@ footer {
 .technology-section.visible .content-wrapper {
     opacity: 1;
     transform: translateX(0);
+}
+
+.about-content-wrapper {
+    max-width: 600px;
+
 }
 
 .cards-container {
@@ -615,16 +640,354 @@ ul.a {
     margin-bottom: 2rem;
     max-width: 300px;
 }
-.about-content-wrapper {
-    min-width: 30%;
-    margin: 7rem auto;
-    text-align: center;
-    background-color: transparent;
-}
+
 
 @media screen and (max-width: 768px) {
     .about-content-wrapper {
         max-width: calc(100% - 40px);
         margin: 4rem auto;
+    }
+}
+
+/* Hardware Section Styles */
+.hardware-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 30px;
+    background-color: #000000;
+    margin-left: clamp(30px, 10vw, 15vw);
+    margin-right: clamp(30px, 10vw, 15vw);
+    border-radius: 20px;
+}
+
+.hardware-content {
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.device-image {
+    flex: 0 0 auto;
+    max-width: clamp(10rem, 30vw, 50rem)
+}
+
+.device-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.specs-table {
+    flex: 1;
+    min-width: 0;
+    max-width: 1500px;
+}
+
+.specs-table h3 {
+    color: white;
+    font-size: clamp(80px, 7.5vw, 200px);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: auto;
+}
+
+.specs-table table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+}
+
+.specs-table thead th {
+    text-align: left;
+    padding: 1rem;
+    font-size: clamp(1.5rem, 2vw, 3rem);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    font-family: auto;
+}
+
+.specs-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+}
+
+.specs-table .spec-label {
+    font-weight: bold;
+    font-size: clamp(18px, 1.8vw, 30px);
+    font-family: auto;
+    color: #7e7e7e;
+}
+
+.hardware-content {
+    gap: clamp(4rem, 8vw, 10rem);
+    max-width: 100%;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1024px) {
+    .hardware-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .device-image {
+        max-width: 600px;
+    }
+
+    .specs-table h3 {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .specs-table table {
+        font-size: 0.85rem;
+    }
+
+    .specs-table thead th,
+    .specs-table tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .device-image {
+        max-width: 600px;
+    }
+
+    .specs-table h3 {
+        font-size: 1.5rem;
+    }
+
+    .specs-table table {
+        font-size: 0.75rem;
+    }
+
+    .specs-table thead th,
+    .specs-table tbody td {
+        padding: 0.5rem 0.25rem;
+    }
+}
+
+/* Details Section Styles */
+.details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 4rem;
+    background-image: url('public/images/rough_background.png');
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-position: top center;
+    margin: 30px;
+    margin-left: clamp(30px, 10vw, 15vw);
+    margin-right: clamp(30px, 10vw, 15vw);
+    border-radius: 20px;
+}
+
+.details-content {
+    display: flex;
+    align-items: center;
+    gap: clamp(3rem, 6vw, 8rem);
+    margin-left: clamp(1rem, 5vw, 10rem);
+    margin-right: clamp(1rem, 1vw, 10rem);
+}
+
+.details-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.details-text h2 {
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-weight: 700;
+}
+
+.details-text p {
+    color: #ffffff;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.specs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.spec-row {
+    display: flex;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.spec-row:last-child {
+    border-bottom: none;
+}
+
+.spec-row .spec-label {
+    font-weight: 700;
+    color: #ffffff;
+    min-width: 120px;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+}
+
+.spec-row .spec-value {
+    color: #ffffff;
+    flex: 1;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+}
+
+.wireframe-image {
+    flex: 0 0 auto;
+    max-width: clamp(20rem, 35vw, 50rem);
+    position: relative;
+}
+
+.wireframe-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: invert(1);
+}
+
+.device-label {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #b0b0b0;
+    font-size: clamp(1.2rem, 1.5vw, 2rem);
+    font-weight: 300;
+}
+
+@media screen and (max-width: 1024px) {
+    .details-container {
+        padding: 2rem;
+    }
+
+    .details-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .wireframe-image {
+        max-width: 600px;
+    }
+
+    .details-text h2 {
+        text-align: center;
+    }
+
+    .details-text p {
+        text-align: center;
+    }
+
+    .spec-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .spec-row .spec-label {
+        min-width: auto;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .details-container {
+        padding: 1.5rem;
+    }
+
+    .wireframe-image {
+        max-width: 100%;
+    }
+
+    .details-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .details-text p {
+        font-size: 0.9rem;
+    }
+
+    .spec-row .spec-label,
+    .spec-row .spec-value {
+        font-size: 0.85rem;
+    }
+
+    .device-label {
+        font-size: 1rem;
+    }
+}
+
+/* About Section Styles */
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 4rem;
+    background-color: #ffffff;
+    margin: 30px;
+    margin-left: clamp(30px, 10vw, 15vw);
+    margin-right: clamp(30px, 10vw, 15vw);
+    border-radius: 20px;
+}
+
+.about-content {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.about-content h2 {
+    color: #000000;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    text-align: left;
+    font-weight: 700;
+}
+
+.about-content h2:first-child {
+    margin-top: 0;
+}
+
+.about-content p {
+    color: #000000;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .about-container {
+        padding: 2rem;
+    }
+
+    .about-content h2 {
+        text-align: center;
+    }
+
+    .about-content p {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .about-container {
+        padding: 1.5rem;
+    }
+
+    .about-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-content p {
+        font-size: 0.9rem;
     }
 }

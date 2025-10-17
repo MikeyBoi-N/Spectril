@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    --midnight-blue: #0a192f;
+    --slate-gray: #8892b0;
+    --black: #000000;
+    --aqua: #64ffda;
+    --teal: #00c7b7;
+}
+
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    min-height: 100vh;
+    color: var(--slate-gray);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+main {
+    background: #000000;
+    padding-top: 90px;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    background: transparent;
+    position: relative;
+    padding: 4rem 2rem;
+}
+
+.hero-section h1 {
+    font-size: clamp(3rem, 8vw, 8rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.hero-section p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--slate-gray);
+}
+
+/* Hero Spectril Section */
+.hero-section-spectril {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    background-color: #ffffff;
+}
+
+.hero-section-spectril .hero-content {
+    display: flex;
+    width: 100%;
+}
+
+.hero-section-spectril .hero-text {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-section-spectril .hero-text h1 {
+    color: #000000;
+    font-size: clamp(1.75rem, 3vw, 3.5rem);
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-section-spectril .hero-text h1:first-child {
+    margin-top: 0;
+}
+
+.hero-section-spectril .hero-text h2,
+.hero-section-spectril .hero-text h3 {
+    color: #000000;
+    font-size: clamp(12px, 1vw, 30px);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-weight: 400;
+}
+
+.hero-section-spectril .hero-text p {
+    color: #000000;
+    font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.hero-section-spectril .hero-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section-spectril .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Content Section - Alternating Layout */
+.content-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 30px;
+    margin-left: clamp(30px, 10vw, 15vw);
+    margin-right: clamp(30px, 10vw, 15vw);
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+
+.content-section.alt-bg {
+    background-image: url('public/images/rough_background.png');
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-position: top center;
+}
+
+.content-section.tech-bg {
+    background-image: url('public/images/inkwater_background.png');
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-position: top center;
+}
+
+.tech-content {
+    width: 100%;
+    color: #ffffff;
+}
+
+.tech-title {
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    margin-bottom: 1rem;
+    text-align: left;
+    font-weight: 700;
+}
+
+.tech-intro {
+    color: #ffffff;
+    font-size: clamp(0.9rem, 1vw, 1.4rem);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.tech-trifold {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.tech-column {
+    background: black;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.tech-column h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.tech-column .model-subtitle {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.tech-column p {
+    color: #ffffff;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.tech-column ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.tech-column ul li {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+}
+
+.tech-core-features {
+    background: black;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.tech-core-features h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.feature-item {
+    color: #ffffff;
+    font-size: 0.95rem;
+    padding: 1rem;
+    background: transparent;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    text-align: center;
+}
+
+.section-content {
+    display: flex;
+    align-items: center;
+    gap: clamp(3rem, 6vw, 8rem);
+    max-width: 100%;
+}
+
+.section-content.reverse {
+    flex-direction: row-reverse;
+}
+
+.section-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.section-text h2 {
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-weight: 700;
+}
+
+.section-text p {
+    color: #ffffff;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.section-text ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.section-text ul li {
+    color: #ffffff;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.section-text ul li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--aqua);
+}
+
+.section-image {
+    flex: 0 0 auto;
+    max-width: clamp(20rem, 35vw, 60rem);
+}
+
+.section-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.placeholder-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: 2px solid rgba(100, 255, 218, 0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--slate-gray);
+    font-size: 1.2rem;
+}
+
+/* Applications Cards Section */
+.applications-section {
+    padding: 4rem 2rem;
+    margin: 30px;
+    margin-left: clamp(30px, 10vw, 15vw);
+    margin-right: clamp(30px, 10vw, 15vw);
+    border-radius: 20px;
+    background-color: #161616;
+}
+
+.applications-section h2 {
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 30px;
+    margin-left: clamp(30px, 10vw, 15vw);
+    margin-right: clamp(30px, 10vw, 15vw);
+}
+
+.application-card {
+    background: rgba(0, 0, 20, 0.5);
+    border-radius: 15px;
+}
+
+.application-card img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.application-card h3 {
+    color: var(--aqua);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.application-card p {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.application-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.application-card ul li {
+    color: var(--slate-gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.application-card ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--aqua);
+}
+
+/* Sponsors Section */
+.sponsors-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    margin: 30px;
+    margin-left: clamp(30px, 10vw, 15vw);
+    margin-right: clamp(30px, 10vw, 15vw);
+    border-radius: 20px;
+    background-color: #161616;
+}
+
+.sponsors-section h2 {
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.sponsors-section p {
+    color: var(--slate-gray);
+    font-size: clamp(1rem, 1.2vw, 1.3rem);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sponsor-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #082029;
+    color: white;
+    text-decoration: none;
+    border-radius: 35px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.sponsor-button:hover {
+    background-color: #ff6347;
+    box-shadow: 0 0 95px #ff450085, 0 0 25px #ff450080, 0 0 35px #ff45007d;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .tech-trifold {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .hero-section-spectril .hero-content {
+        flex-direction: column;
+    }
+
+    .hero-section-spectril .hero-image {
+        max-width: 100%;
+        min-height: 400px;
+    }
+
+    .hero-section-spectril .hero-text {
+        padding: 40px 30px;
+    }
+
+    .content-section {
+        padding: 2rem;
+    }
+
+    .section-content,
+    .section-content.reverse {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .section-image {
+        max-width: 600px;
+    }
+
+    .section-text h2 {
+        text-align: center;
+    }
+
+    .section-text p {
+        text-align: center;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .tech-trifold {
+        gap: 1rem;
+    }
+
+    .tech-column {
+        padding: 1.5rem;
+    }
+
+    .tech-core-features {
+        padding: 1.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-item {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    main {
+        padding-top: 100px;
+    }
+
+    .hero-section-spectril .hero-text {
+        padding: 30px 20px;
+    }
+
+    .hero-section-spectril .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section-spectril .hero-text p {
+        font-size: 0.95rem;
+    }
+
+    .hero-section-spectril .hero-image {
+        min-height: 300px;
+    }
+
+    .content-section,
+    .applications-section,
+    .sponsors-section {
+        padding: 1.5rem;
+        margin: 20px;
+    }
+
+    .section-image {
+        max-width: 100%;
+    }
+
+    .section-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-text p,
+    .section-text ul li {
+        font-size: 0.9rem;
+    }
+
+    .application-card {
+        padding: 1.5rem;
+    }
+}
