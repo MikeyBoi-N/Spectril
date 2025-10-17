@@ -26,3 +26,21 @@ Core Features Across All Models
     Open API support for integration with third-party analytics platforms.
     Minimal calibration requirements to keep operation simple and efficient.
     Features automated calibration routines for maximum accuracy.
+
+
+
+
+Core Spectroscopic Technology (Raman Spectrography)
+
+The fundamental operating principle of Spectril devices is Raman spectrography. This non-destructive technique analyzes the inelastic scattering of monochromatic laser light interacting with molecular vibrations within a sample. Because rotational-vibrational molecular structures provide a unique "fingerprint" for each molecule, Raman spectra allow for the unambiguous identification and quantitative measurement of compounds.
+Different Spectril models employ distinct laser excitation wavelengths to optimize performance for various application needs:
+• Spectril Green (532 nm): The 532 nm laser offers high excitation efficiency, due to Raman scattering efficiency being inversely proportional to the fourth power of the excitation wavelength (∝λ −4). This wavelength is beneficial for analyzing inorganic materials, metal oxides, and minerals. However, it is associated with higher levels of fluorescence interference. The Spectril Green model covers a wide spectral range, such as 65 cm⁻¹ to 4000 cm⁻¹, offering broad spectral coverage.
+• Spectril Red (785 nm): This mid-tier model is equipped with a 785 nm laser, which is the most widely utilized excitation system. The 785 nm wavelength strikes an advantageous balance between signal strength (medium efficiency) and reduced fluorescence interference (medium), performing efficiently for over 90% of Raman active materials. It is specifically designed for the more precise detection of pollutants such as nitrates, sulfates, and phosphates, offering an improved signal-to-noise ratio (SNR) crucial for low-concentration chemical detection
+• Spectril Pro: Remote Sensing and Visualization: The top-tier Spectril Pro model includes functionality for remote Raman spectrography, enabling sample analysis from up to 5 meters away without direct contact. It also features an integrated microscope for real-time visualization of water samples, which supports image-based identification techniques
+
+Processing Unit and Infrastructure: All models rely on embedded systems like a Raspberry Pi, utilizing a small footprint, lightweight design, and low power consumption suitable for field and remote research applications. Global Positioning System (GPS) integration is standard across all models for geotagged sample logging
+
+Environmental Sensor Suite: Spectril devices integrate multiple sensors beyond the core spectrography. The high-end Spectril Pro model includes additional environmental sensors measuring dissolved oxygen, pH, conductivity (specific conductance), and total dissolved solids (TDS). These variables are consistently important for understanding the variation in nitrate concentrations in aquatic systems, allowing for the construction of robust predictive models
+
+    ◦ Conductivity (specific conductance) is particularly valuable as it often correlates strongly with nitrate concentration variability, relating to ionic strength from pollution sources like agricultural runoff.
+    ◦ Turbidity measurement is also crucial for optical interference correction, as light scattering can degrade data quality, especially in challenging environmental matrices
