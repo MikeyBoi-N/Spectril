@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technical details: Spectril</title>
+<meta name="description" content="Specifications, methods, validation plan and limitations of the Spectril water instrument.">
+<meta name="theme-color" content="#131313">
+<meta property="og:title" content="Technical details: Spectril">
+<meta property="og:description" content="Specifications, methods, validation plan and limitations of the Spectril water instrument.">
+<link rel="icon" href="public/icons/icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="public/icons/icon-180.png">
+<link rel="stylesheet" href="site.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="index.html"><img src="public/icons/icon-64.png" alt="" width="20" height="20">Spectril</a>
+  <nav aria-label="Pages">
+    <ul><li><a href="index.html">Home</a></li><li><a href="nitrate.html">Nitrate</a></li><li><a href="technical.html" class="on" aria-current="page">Technical</a></li><li><a href="progress.html">Progress</a></li><li><a href="build.html">Build guide</a></li><li><a href="https://github.com/MikeyBoi-N">GitHub</a></li></ul>
+  </nav>
+</header>
+<main>
+  <section class="phead wrap">
+    <p class="eyebrow rv">Technical details</p>
+    <h1 class="rv">For scientists and auditors</h1>
+    <p class="lead rv">Spectril is at the design stage. Every figure on this page is a design value, an estimate or a published figure from someone else's work. None has been measured on this device yet, and estimates are marked as such.</p>
+  </section>
+
+  <section class="sub wrap">
+    <h2 class="rv">System</h2>
+    <figure class="pn dia draw rv"><h3 class="pl"><i></i>From sample to result</h3><svg class="art" viewBox="0 0 1100 500" role="img" aria-label="Flow from a field sample through a probe cup, filter and lab split, to a shared quartz cell read by UV and Raman, then the Raspberry Pi, result and audit record"><title>Flow from a field sample through a probe cup, filter and lab split, to a shared quartz cell read by UV and Raman, then the Raspberry Pi, result and audit record</title><g class="hi"><rect class="f" x="20" y="200" width="120" height="76" rx="6"/><text class="t b" x="32" y="223" text-anchor="start">Field sample</text><text class="t s" x="32" y="243" text-anchor="start">One bottle,</text><text class="t s" x="32" y="261" text-anchor="start">three parts</text><path class="n tl" d="M140 225 C170.0 225 170.0 84 200 84"/><path class="dt" d="M200.0 84.0 L193.0 87.5 L193.0 80.5 Z"/><path class="n tl" d="M140 238 L200 238"/><path class="dt" d="M200.0 238.0 L193.0 241.5 L193.0 234.5 Z"/><path class="n tl" d="M140 252 C170.0 252 170.0 420 200 420"/><path class="dt" d="M200.0 420.0 L193.0 423.5 L193.0 416.5 Z"/><rect class="f" x="200" y="40" width="200" height="86" rx="6"/><text class="t b" x="212" y="63" text-anchor="start">Probe cup</text><text class="t s" x="212" y="83" text-anchor="start">pH, TDS, turbidity,</text><text class="t s" x="212" y="101" text-anchor="start">temperature. Kept out of cell</text><rect class="f" x="200" y="190" width="200" height="96" rx="6"/><text class="t b" x="212" y="213" text-anchor="start">Filter</text><text class="t s" x="212" y="233" text-anchor="start">Coarse first if the turbidity</text><text class="t s" x="212" y="251" text-anchor="start">flag is on, then 0.45 µm</text><text class="t s" x="212" y="269" text-anchor="start">syringe filter</text><rect class="f" x="200" y="380" width="200" height="80" rx="6"/><text class="t b" x="212" y="403" text-anchor="start">Lab split</text><text class="t s" x="212" y="423" text-anchor="start">Clean bottle, sent when a</text><text class="t s" x="212" y="441" text-anchor="start">result is near a limit</text><path class="n tl" d="M400 238 L450 238"/><path class="dt" d="M450.0 238.0 L443.0 241.5 L443.0 234.5 Z"/><rect class="f" x="450" y="196" width="110" height="84" rx="6"/><text class="t b" x="462" y="219" text-anchor="start">Quartz cell</text><text class="t s" x="462" y="239" text-anchor="start">4 windows</text><text class="t s" x="462" y="257" text-anchor="start">10 mm path</text><path class="n tl" d="M560 222 C590.0 222 590.0 150 620 150"/><path class="dt" d="M620.0 150.0 L613.0 153.5 L613.0 146.5 Z"/><path class="n tl" d="M560 254 C590.0 254 590.0 320 620 320"/><path class="dt" d="M620.0 320.0 L613.0 323.5 L613.0 316.5 Z"/><rect class="f" x="620" y="100" width="200" height="100" rx="6"/><text class="t b" x="632" y="123" text-anchor="start">UV absorbance</text><text class="t s" x="632" y="143" text-anchor="start">235 + 275 nm LEDs</text><text class="t s" x="632" y="161" text-anchor="start">2× SiC diodes, ADS1115</text><text class="t s" x="632" y="179" text-anchor="start">Nitrate + nitrite, organics</text><rect class="f" x="620" y="270" width="200" height="100" rx="6"/><text class="t b" x="632" y="293" text-anchor="start">Raman</text><text class="t s" x="632" y="313" text-anchor="start">785 nm laser, grating, camera</text><text class="t s" x="632" y="331" text-anchor="start">Sulfate, nitrate peak</text><text class="t s" x="632" y="349" text-anchor="start">Water band as standard</text><path class="n tl" d="M720 200 L720 270"/><path class="dt" d="M720.0 270.0 L716.5 263.0 L723.5 263.0 Z"/><text class="t s" x="730" y="240" text-anchor="start">275 nm sets</text><text class="t s" x="730" y="258" text-anchor="start">exposure</text><rect class="f" x="880" y="100" width="200" height="170" rx="6"/><text class="t b" x="892" y="123" text-anchor="start">Raspberry Pi 5</text><text class="t s" x="892" y="143" text-anchor="start">Dark and blank subtraction</text><text class="t s" x="892" y="161" text-anchor="start">Temperature correction</text><text class="t s" x="892" y="179" text-anchor="start">UV and Raman cross-check</text><text class="t s" x="892" y="197" text-anchor="start">Out-of-range flag</text><text class="t s" x="892" y="215" text-anchor="start">Position and time from</text><text class="t s" x="892" y="233" text-anchor="start">GPS HAT</text><path class="n tl" d="M820 150 C850.0 150 850.0 165 880 165"/><path class="dt" d="M880.0 165.0 L873.0 168.5 L873.0 161.5 Z"/><path class="n tl" d="M820 320 C850.0 320 850.0 225 880 225"/><path class="dt" d="M880.0 225.0 L873.0 228.5 L873.0 221.5 Z"/><path class="n tl" d="M400 76 L900 76 L900 100"/><path class="dt" d="M900.0 100.0 L896.5 93.0 L903.5 93.0 Z"/><rect class="f" x="880" y="300" width="200" height="70" rx="6"/><text class="t b" x="892" y="323" text-anchor="start">Result</text><text class="t s" x="892" y="343" text-anchor="start">Range and verdict</text><text class="t s" x="892" y="361" text-anchor="start">Screening, not compliance</text><path class="n tl" d="M980 270 L980 300"/><path class="dt" d="M980.0 300.0 L976.5 293.0 L983.5 293.0 Z"/><rect class="f" x="880" y="400" width="200" height="86" rx="6"/><text class="t b" x="892" y="423" text-anchor="start">Audit record</text><text class="t s" x="892" y="443" text-anchor="start">Raw readings, calibration,</text><text class="t s" x="892" y="461" text-anchor="start">unit ID, position, time</text><path class="n tl" d="M980 370 L980 400"/><path class="dt" d="M980.0 400.0 L976.5 393.0 L983.5 393.0 Z"/><rect class="f" x="620" y="390" width="200" height="70" rx="6"/><text class="t b" x="632" y="413" text-anchor="start">Certified lab</text><text class="t s" x="632" y="433" text-anchor="start">Compliance result</text><path class="n tl" d="M400 425 L620 425"/><path class="dt" d="M620.0 425.0 L613.0 428.5 L613.0 421.5 Z"/><path class="n tl" d="M820 425 L880 425"/><path class="dt" d="M880.0 425.0 L873.0 428.5 L873.0 421.5 Z"/><text class="t s" x="850" y="452" text-anchor="middle">Trains</text><text class="t s" x="850" y="470" text-anchor="middle">model</text></g></svg></figure>
+  </section>
+
+  <section class="sub wrap">
+    <h2 class="rv">UV nitrate channel</h2>
+    <div class="tw rv"><table class="spec">
+      <thead><tr><th scope="col">Item</th><th scope="col">Value</th><th scope="col">Basis</th></tr></thead>
+      <tbody>
+        <tr><td>Wavelengths</td><td>235 nm for nitrate; about 275 nm for organic matter</td><td>Same pair as YSI NitraLED</td></tr>
+        <tr><td>235 nm source</td><td>Marktech MTSM2350D-UV, 230–240 nm, or Silanna SF1</td><td>Datasheet. About €242 each</td></tr>
+        <tr><td>275 nm source</td><td>Vishay VLMU35CR40-275-120 or similar</td><td>Run at low current</td></tr>
+        <tr><td>LED drive</td><td>Constant current, 20 mA (0.3 V across 15 Ω), pulsed, 15 V supply</td><td>Design</td></tr>
+        <tr><td>Detectors</td><td>2× sglux SG01D-18 silicon carbide, 0.5 mm², 221–358 nm at 10% of peak, 0.13 A/W peak at 280 nm</td><td>Datasheet. Response at 235 nm read from its curve</td></tr>
+        <tr><td>Reference</td><td>Second diode views the LEDs directly, not through the cell</td><td>Cancels LED drift</td></tr>
+        <tr><td>Cell</td><td>Fused silica, four polished windows, 10 mm path, 3.5 mL</td><td>Listed at over 80% transmission at 200 nm</td></tr>
+        <tr><td>Amplifier</td><td>LMC6482 transimpedance, 10 MΩ and 10 pF feedback, 0.05 V bias</td><td>Design</td></tr>
+        <tr><td>Converter</td><td>ADS1115, 16-bit, I2C 0x48</td><td>Datasheet</td></tr>
+        <tr><td>Expected signal</td><td>2–5 nA, or 20–50 mV after the amplifier</td><td>Estimate, assuming 0.05–0.13 A/W at 235 nm</td></tr>
+        <tr><td>Sensitivity</td><td>ε₂₃₅ ≈ 277 L·mol⁻¹·cm⁻¹, so 10 mg/L as N gives about 0.20 AU over 10 mm</td><td>Patent US10620129, with units as interpreted</td></tr>
+        <tr><td>Wavelength slope</td><td>About 20% change per nm at 235 nm</td><td>From the same patent's 235 and 236 nm values</td></tr>
+        <tr><td>Sample preparation</td><td>0.45 µm syringe filter. No reagents</td><td>Filters must be checked for nitrate</td></tr>
+        <tr><td>Safety</td><td>Closed chamber; lid switch in the LED supply</td><td>UV-C harms eyes and skin</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="sub wrap">
+    <h2 class="rv">Processing</h2>
+    <div class="two">
+      <div>
+        <p class="body rv">Each wavelength is read as a ratio of sample diode to reference diode, after subtracting dark readings, and compared with a deionized water blank:</p>
+        <pre class="eq rv"><code>A = −log₁₀[ ((S − S_dark) / (R − R_dark)) / ((S₀ − S₀_dark) / (R₀ − R₀_dark)) ]</code></pre>
+        <p class="body rv"><code>S</code> and <code>R</code> are the sample and reference diode readings, and the 0 subscript marks the blank. Nitrate is then estimated from A₂₃₅ and A₂₇₅ with temperature correction, using a model trained on samples with paired lab results, such as partial least squares.</p>
+      </div>
+      <ol class="plain rv">
+        <li><span><b>Reject</b> the test if the repeat 235 nm reading differs from the first.</span></li>
+        <li><span><b>Flag</b> samples outside the range the model was trained on, instead of guessing.</span></li>
+        <li><span><b>Report</b> a range and a verdict, with nitrite included and disclosed.</span></li>
+        <li><span><b>Transfer</b> calibration between units with a simple correction, tested at Gate 4.</span></li>
+      </ol>
+    </div>
+    <figure class="pn dia draw seq rv"><h3 class="pl"><i></i>Order of readings in one test</h3><svg class="art" viewBox="0 0 1100 300" role="img" aria-label="Timing lanes for one test: dark reading, 275 nm pulse, 235 nm pulse, Raman dark frame, Raman lit frame with the laser on, then 235 nm again"><title>Timing lanes for one test: dark reading, 275 nm pulse, 235 nm pulse, Raman dark frame, Raman lit frame with the laser on, then 235 nm again</title><g class="hi"><text class="t b" x="190.0" y="30" text-anchor="middle">Dark</text><text class="t s" x="190.0" y="288" text-anchor="middle">Offset, room light</text><text class="t b" x="295.0" y="30" text-anchor="middle">275 nm</text><text class="t s" x="295.0" y="288" text-anchor="middle">Organics</text><text class="t b" x="410.0" y="30" text-anchor="middle">235 nm</text><text class="t s" x="410.0" y="288" text-anchor="middle">Nitrate + nitrite</text><text class="t b" x="565.0" y="30" text-anchor="middle">Raman dark</text><text class="t s" x="565.0" y="288" text-anchor="middle">Camera background</text><text class="t b" x="755.0" y="30" text-anchor="middle">Raman lit</text><text class="t s" x="755.0" y="288" text-anchor="middle">Raman + background</text><text class="t b" x="925.0" y="30" text-anchor="middle">235 nm again</text><text class="t s" x="925.0" y="288" text-anchor="middle">Heating, settling</text><g class="dim"><path class="n d" d="M140 42 L140 268"/></g><g class="dim"><path class="n d" d="M240 42 L240 268"/></g><g class="dim"><path class="n d" d="M350 42 L350 268"/></g><g class="dim"><path class="n d" d="M470 42 L470 268"/></g><g class="dim"><path class="n d" d="M660 42 L660 268"/></g><g class="dim"><path class="n d" d="M850 42 L850 268"/></g><g class="dim"><path class="n d" d="M1000 42 L1000 268"/></g><text class="t" x="20" y="78" text-anchor="start">275 nm LED</text><g class="hz"><path class="n" d="M140 76 L240 76 L250 76 L250 54 L340 54 L340 76 L350 76 L470 76 L660 76 L850 76 L1000 76" style="stroke-width:1.6"/></g><text class="t" x="20" y="122" text-anchor="start">235 nm LED</text><g class="hz"><path class="n" d="M140 120 L240 120 L350 120 L360 120 L360 98 L460 98 L460 120 L470 120 L660 120 L850 120 L860 120 L860 98 L990 98 L990 120 L1000 120" style="stroke-width:1.6"/></g><text class="t" x="20" y="166" text-anchor="start">Laser</text><g class="hz"><path class="n" d="M140 164 L240 164 L350 164 L470 164 L660 164 L670 164 L670 142 L840 142 L840 164 L850 164 L1000 164" style="stroke-width:1.6"/></g><text class="t" x="20" y="210" text-anchor="start">Diodes read</text><path class="n" d="M140 208 L150 208 L150 186 L230 186 L230 208 L240 208 L250 208 L250 186 L340 186 L340 208 L350 208 L360 208 L360 186 L460 186 L460 208 L470 208 L660 208 L850 208 L860 208 L860 186 L990 186 L990 208 L1000 208" style="stroke-width:1.6"/><text class="t" x="20" y="254" text-anchor="start">Camera exposes</text><path class="n" d="M140 252 L240 252 L350 252 L470 252 L480 252 L480 230 L650 230 L650 252 L660 252 L670 252 L670 230 L840 230 L840 252 L850 252 L1000 252" style="stroke-width:1.6"/><g class="ph hz"><path class="n" d="M140 40 L140 268" style="stroke-width:2"/></g></g></svg></figure>
+  </section>
+
+  <section class="sub wrap">
+    <h2 class="rv">Raman channel</h2>
+    <figure class="pn dia draw rv"><h3 class="pl"><i></i>Optical layout</h3><svg class="art" viewBox="0 0 1100 660" role="img" aria-label="Top view: a 785 nm laser passes through the quartz cell to a beam dump. Raman light leaves at a right angle, with a concave mirror behind the cell, through a collection lens, RG830 filter and grating into the camera. Side view: the UV beam crosses the same cell lower down at 10 mm and the laser at 25 mm"><title>Top view: a 785 nm laser passes through the quartz cell to a beam dump. Raman light leaves at a right angle, with a concave mirror behind the cell, through a collection lens, RG830 filter and grating into the camera. Side view: the UV beam crosses the same cell lower down at 10 mm and the laser at 25 mm</title><g class="hi"><g class="dim"><rect class="n d" x="14" y="24" width="1072" height="388" rx="8"/></g><text class="t s" x="26" y="48" text-anchor="start">Light-tight housing. Lid opens both switches.</text><rect class="f" x="190" y="165" width="100" height="100" rx="3"/><rect class="n" x="196" y="171" width="88" height="88"/><g class="hz"><path class="n tl" d="M240 340 L240 92"/><path class="dt" d="M240.0 92.0 L243.5 99.0 L236.5 99.0 Z"/><rect class="f" x="210" y="64" width="60" height="28" rx="3"/><rect class="f" x="200" y="340" width="80" height="60" rx="4"/><text class="t b hz" x="240" y="366" text-anchor="middle">Laser</text><text class="t s hz" x="240" y="386" text-anchor="middle">785 nm</text><text class="t s hz" x="250" y="130" text-anchor="start">Laser</text></g><rect class="f" x="218" y="314" width="44" height="7" rx="1"/><text class="t s" x="210" y="322" text-anchor="end">Cleanup filter, if needed</text><text class="t" x="280" y="83" text-anchor="start">Beam dump</text><text class="t s" x="292" y="366" text-anchor="start">About 90 mW diode with</text><text class="t s" x="292" y="384" text-anchor="start">driver and built-in lens</text><path class="n" d="M132 165 Q160 215 132 265" style="stroke-width:3"/><text class="t" x="24" y="124" text-anchor="start">Concave mirror</text><text class="t s" x="24" y="143" text-anchor="start">2.3× signal in one study</text><path class="n tl" d="M146 215 L240 215"/><path class="n tl" d="M240 215 L560 215"/><path class="dt" d="M560.0 215.0 L553.0 218.5 L553.0 211.5 Z"/><path class="n tl" d="M240 215 L360 180"/><path class="n tl" d="M240 215 L360 250"/><path class="n tl" d="M360 180 L560 180"/><path class="n tl" d="M360 250 L560 250"/><path class="f" d="M360 167.0 Q378 215 360 263.0 Q342 215 360 167.0 Z"/><rect class="f" x="456" y="166" width="8" height="98"/><rect class="f" x="560" y="162" width="7" height="106"/><path class="n tl" d="M567 180 L712 99"/><path class="n tl" d="M567 215 L728 127"/><path class="n tl" d="M567 250 L744 155"/><g class="dim"><path class="n tl" d="M567 215 L660 215"/><path class="dt" d="M660.0 215.0 L653.0 218.5 L653.0 211.5 Z"/></g><text class="t s" x="668" y="220" text-anchor="start">Zero order: absorbed</text><g transform="translate(728,127) rotate(-30)"><rect class="f" x="0" y="-36" width="92" height="72" rx="4"/><path class="f" d="M12 -28 Q24 0 12 28 Q0 0 12 -28 Z"/><path class="n" d="M78 -26 L78 26" style="stroke-width:3"/></g><text class="t" x="850" y="92" text-anchor="start">Camera</text><text class="t s" x="850" y="111" text-anchor="start">IMX708 NoIR, own lens</text><text class="t s" x="850" y="129" text-anchor="start">CAM/DISP 0</text><text class="t" x="360" y="296" text-anchor="middle">Collection lens</text><text class="t s" x="360" y="314" text-anchor="middle">About 50 mm</text><text class="t" x="460" y="296" text-anchor="middle">RG830 filter</text><text class="t s" x="460" y="314" text-anchor="middle">Blocks laser</text><text class="t" x="563" y="296" text-anchor="middle">Grating</text><text class="t s" x="563" y="314" text-anchor="middle">600 lines/mm</text><text class="t" x="300" y="150" text-anchor="start">Quartz cell</text><text class="t s" x="385" y="170" text-anchor="start">Raman</text><text class="t s" x="650" y="324" text-anchor="start">No slit: the laser line in the cell acts as the slit.</text><text class="t s" x="650" y="342" text-anchor="start">Software adds the camera rows along that line.</text><text class="t b" x="24" y="444" text-anchor="start">Side view from the camera</text><rect class="f" x="210" y="460" width="100" height="180" rx="3"/><g class="dim"><path class="n d" d="M210 520 L310 520"/></g><text class="t s" x="320" y="512" text-anchor="start">Fill to 30 mm</text><g class="hz"><path class="n tl" d="M130 540 L420 540"/><path class="dt" d="M420.0 540.0 L413.0 543.5 L413.0 536.5 Z"/><path class="n tl d" d="M130 600 L420 600"/><path class="dt" d="M420.0 600.0 L413.0 603.5 L413.0 596.5 Z"/><path class="n tl d" d="M130 608 L150 622"/><path class="dt" d="M150.0 622.0 L142.3 620.9 L146.3 615.1 Z"/><rect class="f" x="70" y="527" width="60" height="26" rx="3"/><rect class="f" x="70" y="587" width="60" height="26" rx="3"/></g><circle class="f" cx="260" cy="540" r="8"/><circle class="dt" cx="260" cy="540" r="3"/><text class="t s" x="260" y="561" text-anchor="middle">To camera</text><text class="t s" x="200" y="535" text-anchor="end">25 mm</text><text class="t s" x="200" y="595" text-anchor="end">10 mm</text><rect class="f" x="420" y="527" width="56" height="26" rx="3"/><rect class="f" x="420" y="587" width="56" height="26" rx="3"/><rect class="f" x="150" y="618" width="36" height="16" rx="2"/><text class="t" x="70" y="521" text-anchor="start">Laser</text><text class="t" x="70" y="581" text-anchor="start">UV LEDs</text><text class="t s" x="144" y="642" text-anchor="end">Reference diode</text><text class="t" x="420" y="521" text-anchor="start">Beam dump</text><text class="t" x="420" y="581" text-anchor="start">Sample diode</text><text class="t b" x="580" y="444" text-anchor="start">Where bands land with a 785 nm laser</text><g class="dim"><rect class="n d" x="580.0" y="540" width="170.0" height="60"/></g><text class="t s" x="609.0" y="582" text-anchor="start">Blocked by RG830</text><g class="hz"><path class="n" d="M597.0 600 L597.0 530" style="stroke-width:2"/></g><g class="hz"><text class="t hz" x="597.0" y="522" text-anchor="middle">Laser 785</text></g><path class="n tl" d="M580.0 600 L1022.0 600"/><path class="n tl" d="M648.0 600 L648.0 606"/><text class="t s" x="648.0" y="624" text-anchor="middle">800</text><path class="n tl" d="M818.0 600 L818.0 606"/><text class="t s" x="818.0" y="624" text-anchor="middle">850</text><path class="n tl" d="M988.0 600 L988.0 606"/><text class="t s" x="988.0" y="624" text-anchor="middle">900</text><text class="t s" x="1022.0" y="624" text-anchor="start">nm</text><path class="n" d="M819.7 600 L819.7 510" style="stroke-width:2"/><path class="n" d="M835.7 600 L835.7 494" style="stroke-width:2"/><path class="n" d="M991.4 600 L991.4 560" style="stroke-width:2"/><text class="t" x="815.7" y="516" text-anchor="end">Sulfate 851</text><text class="t" x="839.7" y="500" text-anchor="start">Nitrate 855</text><text class="t" x="991.4" y="552" text-anchor="middle">Water 901</text><text class="t s" x="580" y="646" text-anchor="start">Sulfate and nitrate sit 4.7 nm apart.</text></g></svg></figure>
+    <div class="tw rv"><table class="spec">
+      <thead><tr><th scope="col">Item</th><th scope="col">Value</th><th scope="col">Basis</th></tr></thead>
+      <tbody>
+        <tr><td>Laser</td><td>785 nm single-mode diode, about 90 mW, not wavelength-stabilized, such as Thorlabs L785P090</td><td>Stabilized lasers start near $1,000. Line width must be measured and stay under about 2 nm</td></tr>
+        <tr><td>Geometry</td><td>Laser crosses the cell 25 mm above its base. Collection at 90°, with a concave mirror behind the cell</td><td>Keeps most laser light out of the camera</td></tr>
+        <tr><td>Laser blocking</td><td>RG830 coloured-glass longpass filter</td><td>Passes sulfate and nitrate bands; leakage at 785 nm to be measured</td></tr>
+        <tr><td>Dispersion</td><td>600 lines/mm transmission grating</td><td>Design</td></tr>
+        <tr><td>Lenses</td><td>About 50 mm collection lens, then the camera's own 4.74 mm f/1.8 lens</td><td>No slit: the laser line acts as one</td></tr>
+        <tr><td>Detector</td><td>Sony IMX708, Camera Module 3 NoIR, 1.4 µm pixels, exposures up to 112 s</td><td>Sensitivity at 855 nm not verified</td></tr>
+        <tr><td>Resolution</td><td>About 2.9 nm, or 39 cm⁻¹, for a 100 µm laser line</td><td>Estimate</td></tr>
+        <tr><td>Scale</td><td>About 2.4 pixels per nm; about 680 rows added together along the line</td><td>Estimate</td></tr>
+        <tr><td>Band positions</td><td>Sulfate 981 cm⁻¹ at 850.5 nm; nitrate 1046 cm⁻¹ at 855.2 nm; water bend at about 901 nm</td><td>Calculated for 785 nm</td></tr>
+        <tr><td>Drift correction</td><td>Spectra aligned on the water band in each test</td><td>Design</td></tr>
+        <tr><td>Published nitrate result</td><td>2.89 mg/L as N detection limit with 785 nm, 500 mW, 30 s, a 20 mm cell, a gold mirror and a commercial spectrometer</td><td>Published study. This build has far less power and a simpler detector</td></tr>
+        <tr><td>Published sulfate result</td><td>About 173–207 mg/L with conventional Raman at 532 nm, 0.3 W</td><td>Against a 250 mg/L guideline, so marginal</td></tr>
+        <tr><td>Safety</td><td>Class 3B. Enclosed, with its own lid switch in the laser supply. OD 4 glasses for testing</td><td>785 nm is nearly invisible</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note rv">Why 785 nm over 638 nm: less fluorescence from organic matter, no overlap with chlorophyll emission near 685 nm, and less risk of glow from the quartz. The cost is a weaker signal, about 2.3× from wavelength alone, and probably lower camera sensitivity.</p>
+  </section>
+
+  <section class="sub wrap">
+    <h2 class="rv">Other sensors</h2>
+    <div class="tw rv"><table class="spec">
+      <thead><tr><th scope="col">Sensor</th><th scope="col">Part</th><th scope="col">Rated performance</th><th scope="col">Use</th></tr></thead>
+      <tbody>
+        <tr><td>pH</td><td>DFRobot SEN0161-V2</td><td>±0.1 at 25 °C</td><td>Against 6.5–8.5</td></tr>
+        <tr><td>TDS</td><td>DFRobot SEN0244</td><td>0–1000 ppm, ±10% of full scale</td><td>Against 500 mg/L; about ±100 ppm, so 400–600 is "near limit"</td></tr>
+        <tr><td>Isolation</td><td>2× DFRobot DFR0504</td><td>Analog isolators</td><td>Stops TDS drive current corrupting pH</td></tr>
+        <tr><td>Turbidity</td><td>DFRobot SEN0189</td><td>Not a regulatory NTU reading</td><td>Flags samples to filter</td></tr>
+        <tr><td>Temperature</td><td>DS18B20</td><td>Digital, 1-Wire</td><td>Corrects UV and probe readings</td></tr>
+        <tr><td>Position and time</td><td>Adafruit Ultimate GPS HAT</td><td>With PPS</td><td>Saved with every result</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="sub wrap">
+    <h2 class="rv">Electronics</h2>
+    <figure class="pn dia draw rv"><h3 class="pl"><i></i>Wiring</h3><svg class="art" viewBox="0 0 1100 752" role="img" aria-label="Wiring of the probes, two ADS1115 boards, Raspberry Pi pads, UV module and Raman add-on"><title>Wiring of the probes, two ADS1115 boards, Raspberry Pi pads, UV module and Raman add-on</title><g class="hi"><g class="dim"><rect class="n d" x="770" y="398" width="322" height="244" rx="8"/></g><text class="t s" x="782" y="420" text-anchor="start">Raman add-on, not in the Build tab</text><rect class="f" x="20" y="44" width="210" height="90" rx="6"/><text class="t b" x="32" y="67" text-anchor="start">Turbidity, SEN0189</text><text class="t s" x="32" y="87" text-anchor="start">VCC: 5V</text><text class="t s" x="32" y="105" text-anchor="start">2× 10 kΩ divider on signal</text><rect class="f" x="20" y="228" width="210" height="70" rx="6"/><text class="t b" x="32" y="251" text-anchor="start">pH + DFR0504</text><text class="t s" x="32" y="271" text-anchor="start">VCC: 5V, isolated</text><rect class="f" x="20" y="314" width="210" height="70" rx="6"/><text class="t b" x="32" y="337" text-anchor="start">TDS + DFR0504</text><text class="t s" x="32" y="357" text-anchor="start">VCC: 5V, isolated</text><rect class="f" x="20" y="470" width="210" height="90" rx="6"/><text class="t b" x="32" y="493" text-anchor="start">DS18B20</text><text class="t s" x="32" y="513" text-anchor="start">VCC: 3.3V only</text><text class="t s" x="32" y="531" text-anchor="start">Never 5V</text><rect class="f" x="310" y="44" width="170" height="130" rx="6"/><text class="t b" x="322" y="67" text-anchor="start">ADS1115 #1</text><text class="t s" x="322" y="87" text-anchor="start">0x48, ADDR open</text><text class="t s" x="322" y="105" text-anchor="start">VDD: 3.3V</text><text class="t m" x="322" y="148" text-anchor="start">A0</text><text class="t m" x="468" y="118" text-anchor="end">A1</text><text class="t m" x="468" y="142" text-anchor="end">A2</text><text class="t s" x="468" y="166" text-anchor="end">A3 spare</text><rect class="f" x="310" y="228" width="170" height="156" rx="6"/><text class="t b" x="322" y="251" text-anchor="start">ADS1115 #2</text><text class="t s" x="322" y="271" text-anchor="start">0x49, ADDR to 3.3V</text><text class="t s" x="322" y="289" text-anchor="start">VDD: 3.3V</text><text class="t m" x="322" y="318" text-anchor="start">A0</text><text class="t m" x="322" y="354" text-anchor="start">A1</text><path class="n tl" d="M230 110 C270.0 110 270.0 143 310 143"/><path class="dt" d="M310.0 143.0 L303.0 146.5 L303.0 139.5 Z"/><path class="n tl" d="M230 263 C270.0 263 270.0 313 310 313"/><path class="dt" d="M310.0 313.0 L303.0 316.5 L303.0 309.5 Z"/><path class="n tl" d="M230 349 C270.0 349 270.0 349 310 349"/><path class="dt" d="M310.0 349.0 L303.0 352.5 L303.0 345.5 Z"/><rect class="f" x="560" y="150" width="170" height="590" rx="6"/><text class="t b" x="572" y="173" text-anchor="start">Raspberry Pi 5</text><text class="t s" x="572" y="193" text-anchor="start">Through GPS HAT pads</text><text class="t s" x="572" y="300" text-anchor="start">Pins 3, 5</text><text class="t s" x="572" y="318" text-anchor="start">SDA, SCL</text><text class="t s" x="572" y="510" text-anchor="start">Pin 12, GPIO 18</text><text class="t s" x="572" y="372" text-anchor="start">GPS: UART 8, 10</text><text class="t s" x="572" y="390" text-anchor="start">PPS pin 7</text><text class="t s" x="572" y="408" text-anchor="start">UPS: pogo, 0x42</text><text class="t s" x="572" y="620" text-anchor="start">3.3V: pins 1, 17</text><text class="t s" x="572" y="640" text-anchor="start">5V: pins 2, 4</text><text class="t s" x="572" y="660" text-anchor="start">GND: 6, 9, 14, 20</text><text class="t s" x="718" y="236" text-anchor="end">Pin 16, GPIO 23</text><text class="t s" x="718" y="262" text-anchor="end">Pin 18, GPIO 24</text><text class="t s" x="718" y="470" text-anchor="end">Pin 11, GPIO 17</text><text class="t s" x="718" y="560" text-anchor="end">CAM/DISP 0</text><text class="t s" x="718" y="710" text-anchor="end">CAM/DISP 1</text><path class="n tl" d="M480 86 C520.0 86 520.0 304 560 304"/><path class="dt" d="M560.0 304.0 L553.0 307.5 L553.0 300.5 Z"/><path class="n tl" d="M480 260 C520.0 260 520.0 304 560 304"/><path class="dt" d="M560.0 304.0 L553.0 307.5 L553.0 300.5 Z"/><text class="t s" x="492" y="76" text-anchor="start">I2C</text><text class="t s" x="492" y="252" text-anchor="start">I2C</text><path class="n tl" d="M230 505 L560 505"/><path class="dt" d="M560.0 505.0 L553.0 508.5 L553.0 501.5 Z"/><rect class="f" x="790" y="44" width="300" height="90" rx="6"/><text class="t b" x="802" y="67" text-anchor="start">2× diode amplifier</text><text class="t s" x="802" y="87" text-anchor="start">½ LMC6482 on 3.3V, 10 MΩ, 10 pF</text><text class="t s" x="802" y="105" text-anchor="start">Sample diode → A1, reference → A2</text><path class="n tl" d="M790 90 L610 90 L610 113 L480 113"/><path class="dt" d="M480.0 113.0 L487.0 109.5 L487.0 116.5 Z"/><path class="n tl" d="M790 112 L640 112 L640 137 L480 137"/><path class="dt" d="M480.0 137.0 L487.0 133.5 L487.0 140.5 Z"/><rect class="f" x="790" y="190" width="150" height="110" rx="6"/><text class="t b" x="802" y="213" text-anchor="start">2× LED driver</text><text class="t s" x="802" y="233" text-anchor="start">½ LMC6482 on 3.3V</text><text class="t s" x="802" y="251" text-anchor="start">N-MOSFET</text><text class="t s" x="802" y="269" text-anchor="start">15 Ω = 20 mA</text><path class="n tl" d="M730 231 L790 231"/><path class="dt" d="M790.0 231.0 L783.0 234.5 L783.0 227.5 Z"/><path class="n tl" d="M730 257 L790 257"/><path class="dt" d="M790.0 257.0 L783.0 260.5 L783.0 253.5 Z"/><g class="hz"><rect class="f" x="970" y="190" width="120" height="40" rx="6"/><text class="t b" x="1030.0" y="213" text-anchor="middle">235, 275 nm</text></g><g class="hz"><path class="n tl" d="M970 210 L940 210"/><path class="dt" d="M940.0 210.0 L947.0 206.5 L947.0 213.5 Z"/></g><rect class="f" x="970" y="262" width="120" height="40" rx="6"/><text class="t b" x="1030.0" y="285" text-anchor="middle">Lid switch A</text><g class="hz"><path class="n tl" d="M1030 262 L1030 230"/><path class="dt" d="M1030.0 230.0 L1033.5 237.0 L1026.5 237.0 Z"/></g><rect class="f" x="970" y="330" width="120" height="56" rx="6"/><text class="t b" x="1030.0" y="353" text-anchor="middle">Boost, 15 V</text><text class="t s" x="1030.0" y="373" text-anchor="middle">In: 5V</text><g class="hz"><path class="n tl" d="M1030 330 L1030 302"/><path class="dt" d="M1030.0 302.0 L1033.5 309.0 L1026.5 309.0 Z"/></g><rect class="f" x="790" y="434" width="150" height="92" rx="6"/><text class="t b" x="802" y="457" text-anchor="start">Laser switch</text><text class="t s" x="802" y="477" text-anchor="start">N-MOSFET</text><text class="t s" x="802" y="495" text-anchor="start">220 Ω to gate</text><text class="t s" x="802" y="513" text-anchor="start">10 kΩ gate to GND</text><path class="n tl" d="M730 465 L790 465"/><path class="dt" d="M790.0 465.0 L783.0 468.5 L783.0 461.5 Z"/><g class="hz"><rect class="f" x="970" y="434" width="120" height="56" rx="6"/><text class="t b" x="1030.0" y="457" text-anchor="middle">Laser driver</text><text class="t s" x="1030.0" y="477" text-anchor="middle">785 nm diode</text></g><g class="hz"><path class="n tl" d="M970 462 L940 462"/><path class="dt" d="M940.0 462.0 L947.0 458.5 L947.0 465.5 Z"/></g><rect class="f" x="970" y="510" width="120" height="40" rx="6"/><text class="t b" x="1030.0" y="533" text-anchor="middle">Lid switch B</text><g class="hz"><path class="n tl" d="M1030 510 L1030 490"/><path class="dt" d="M1030.0 490.0 L1033.5 497.0 L1026.5 497.0 Z"/></g><rect class="f" x="970" y="570" width="120" height="56" rx="6"/><text class="t b" x="1030.0" y="593" text-anchor="middle">Laser supply</text><text class="t s" x="1030.0" y="613" text-anchor="middle">Rated voltage</text><g class="hz"><path class="n tl" d="M1030 570 L1030 550"/><path class="dt" d="M1030.0 550.0 L1033.5 557.0 L1026.5 557.0 Z"/></g><rect class="f" x="790" y="544" width="150" height="84" rx="6"/><text class="t b" x="802" y="567" text-anchor="start">Camera Module 3</text><text class="t s" x="802" y="587" text-anchor="start">NoIR</text><text class="t s" x="802" y="605" text-anchor="start">22-to-15-pin ribbon</text><path class="n tl" d="M730 555 L790 555"/><path class="dt" d="M790.0 555.0 L783.0 558.5 L783.0 551.5 Z"/><rect class="f" x="790" y="670" width="150" height="60" rx="6"/><text class="t b" x="802" y="693" text-anchor="start">Display</text><text class="t s" x="802" y="713" text-anchor="start">Ribbon, plus 5V, GND</text><path class="n tl" d="M730 705 L790 705"/><path class="dt" d="M790.0 705.0 L783.0 708.5 L783.0 701.5 Z"/></g></svg><figcaption class="cap">A bare laser diode needs a constant-current driver; never run it from the MOSFET alone. Check total draw against the UPS HAT's 4 A sustained limit.</figcaption></figure>
+    <div class="tw rv"><table>
+      <thead><tr><th scope="col">Bus or pin</th><th scope="col">Used by</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">I2C, pins 3 and 5</td><td>ADS1115 0x48, ADS1115 0x49, UPS HAT 0x42</td></tr>
+        <tr><td class="mono">UART, pins 8 and 10; PPS, pin 7</td><td>GPS HAT</td></tr>
+        <tr><td class="mono">Pin 12, GPIO 18</td><td>DS18B20</td></tr>
+        <tr><td class="mono">Pin 16, GPIO 23</td><td>235 nm LED driver</td></tr>
+        <tr><td class="mono">Pin 18, GPIO 24</td><td>275 nm LED driver</td></tr>
+        <tr><td class="mono">Pin 11, GPIO 17</td><td>Laser switch, Raman only</td></tr>
+        <tr><td class="mono">CAM/DISP 0, CAM/DISP 1</td><td>Camera, Raman only; display</td></tr>
+        <tr><td class="mono">ADS1115 0x48</td><td>A0 turbidity, A1 sample diode, A2 reference diode</td></tr>
+        <tr><td class="mono">ADS1115 0x49</td><td>A0 pH, A1 TDS</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="sub wrap">
+    <h2 class="rv">What's saved with each result</h2>
+    <div class="tw rv"><table>
+      <thead><tr><th scope="col">Evidence</th><th scope="col">Source</th></tr></thead>
+      <tbody>
+        <tr><td>Where and when</td><td>GPS position and time</td></tr>
+        <tr><td>Raw measurement</td><td>Sample and reference diode readings, dark readings, blank</td></tr>
+        <tr><td>Sample conditions</td><td>Temperature, pH, TDS, turbidity flag</td></tr>
+        <tr><td>Proof the unit works</td><td>Latest nitrate check standard result</td></tr>
+        <tr><td>What the unit is</td><td>Unit record: parts, lots, calibrations, software version</td></tr>
+        <tr><td>Independent confirmation</td><td>A split sample in a clean bottle, for a certified lab</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note rv">The storage and export software doesn't exist yet.</p>
+  </section>
+
+  <section class="sub wrap">
+    <h2 class="rv">Validation plan</h2>
+    <p class="lead rv">Each gate has to pass before money goes into the next.</p>
+    <div class="tw rv"><table>
+      <thead><tr><th scope="col">Gate</th><th scope="col">Test</th><th scope="col">Pass</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>20–30 real samples with lab nitrate values and full UV scans, plus standards at 1, 5, 10 and 15 mg/L as N. Simulate LED sets with 10 nm bandwidth</td><td>Predicted error within ±10% at 10 mg/L, with LEDs that can be bought</td></tr>
+        <tr><td>2</td><td>Bench prototype with standards and the same samples</td><td>Detection limit 1 mg/L or better; drift under 10% at 10 mg/L over 8 hours and about 5–35 °C</td></tr>
+        <tr><td>3</td><td>Side-by-side with a certified lab on new samples</td><td>±10% met, and no sample above 10 mg/L reported as clear</td></tr>
+        <tr><td>4</td><td>At least three units</td><td>One calibration meets the targets on the others after a simple correction</td></tr>
+        <tr><td>5</td><td>Raman bench test with the cheapest parts</td><td>Laser line under about 2 nm; repeatable peaks at 1046 cm⁻¹ at 10 mg/L as N and at 981 cm⁻¹ at 250 mg/L sulfate</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="sub wrap">
+    <h2 class="rv">Known limitations</h2>
+    <ul class="plain">
+      <li class="rv"><span>Screening only. US compliance analyses must be done by certified labs using listed methods, and UV absorbance (Standard Methods 4500-NO₃ B) isn't on the nitrate list.</span></li>
+      <li class="rv"><span>Nitrite absorbs in the same region and is included in the UV result.</span></li>
+      <li class="rv"><span>The two-wavelength organic correction is meant for low-organic water. A New Hampshire stream study found dissolved organics affected even a full-spectrum sensor.</span></li>
+      <li class="rv"><span>Iodide and bisulfide interfere, per YSI. Brackish water and seawater are out of scope because of bromide.</span></li>
+      <li class="rv"><span>Two or three wavelengths can't separate five unknowns. Filtering and limited scope have to cover the rest.</span></li>
+      <li class="rv"><span>The Raman channel's reach on a Pi camera is unproven. With about 90 mW it may only see high concentrations.</span></li>
+      <li class="rv"><span>The 220 nm LEDs some listings advertise weren't credible: one "222 nm" part specifies a 230–238 nm peak in its own table.</span></li>
+    </ul>
+  </section>
+
+  <section class="sub wrap">
+    <h2 class="rv">Sources</h2>
+    <ul class="src rv">
+      <li><a href="https://www.epa.gov/ground-water-and-drinking-water/national-primary-drinking-water-regulations">EPA drinking water regulations</a></li>
+      <li><a href="https://www.law.cornell.edu/cfr/text/40/141.23">40 CFR 141.23</a></li>
+      <li><a href="https://www.ysi.com/nitraled/faq">YSI NitraLED FAQ</a></li>
+      <li><a href="https://patents.google.com/patent/US10620129">Patent US10620129, nitrate absorptivity</a></li>
+      <li><a href="https://patents.google.com/patent/US12013335">Patent US12013335, nitrate peak near 200 nm</a></li>
+      <li><a href="https://pubs.usgs.gov/publication/ofr20151065">USGS SUNA evaluation</a></li>
+      <li><a href="https://cdn.eenewseurope.com/en/nitrate-sensing-reference-design-for-uv-c-leds/">Silanna nitrate reference design</a></li>
+      <li><a href="https://sglux.de/en/product/sg01d-18-en/">sglux SG01D-18</a></li>
+      <li><a href="https://www.digikey.de/en/products/detail/marktech-optoelectronics/MTSM2350D-UV/25597126">Marktech 235 nm LED</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11840477/">Raman nitrate with a gold mirror</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4507585">Raman sulfate in water</a></li>
+      <li><a href="https://doi.org/10.1063/5.0046281">Cell-phone Raman spectrometer</a></li>
+      <li><a href="https://www.raspberrypi.com/documentation/accessories/camera.html">Raspberry Pi camera documentation</a></li>
+      <li><a href="https://www.usgs.gov/mission-areas/water-resources/science/domestic-private-supply-wells">USGS private wells</a></li>
+    </ul>
+    <p class="note rv">Found a mistake? Email <a href="mailto:mika.nehring@gmail.com">mika.nehring@gmail.com</a>.</p>
+  </section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <span>Spectril</span>
+    <a href="technical.html">Technical details</a>
+    <a href="build.html">Build guide</a>
+    <a href="https://github.com/MikeyBoi-N">GitHub</a>
+    <a href="index.html#licence">Licence</a>
+    <a href="mailto:mika.nehring@gmail.com">mika.nehring@gmail.com</a>
+    <span class="sp">Open-source water testing</span>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

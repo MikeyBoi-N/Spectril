@@ -1,165 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spectril</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="index-style.css">
-    <link rel="icon" href="public/icons/icon.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spectril: open-source water testing</title>
+<meta name="description" content="Spectril is an open-source handheld instrument for measuring nitrate in water. Build it from about $1,500 in parts.">
+<meta name="theme-color" content="#131313">
+<meta property="og:title" content="Spectril: open-source water testing">
+<meta property="og:description" content="Spectril is an open-source handheld instrument for measuring nitrate in water. Build it from about $1,500 in parts.">
+<link rel="icon" href="public/icons/icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="public/icons/icon-180.png">
+<link rel="stylesheet" href="site.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-    <header></header>
-    
-    <main>
-        <section class="content-section hero-section-spectril">
-            <div class="section-content hero-content">
-                <div class="section-text hero-text">
-                    <h1>The Problem</h1>
-                    <h3>Microplastics contaminate our ecosystems. <br>Nitrate pollution triggers eutrophication. <br>Both endanger public health. <br>We can't fix what we can't detect, and conventional testing takes days & costs thousands</h3>
-                    
-                    <h1>Our Solution</h1>
-                    <h3>Spectril offers high-precision, field-deployable Raman spectroscopy at a very low cost thanks to advanced models and integration of AI technology. <br>Spectril's detection also extends beyond just Nitrates and Microplastics...</h3>
-                </div>
-                <div class="section-image hero-image">
-                    <img src="public/images/hero_promo.png" alt="Spectril Device">
-                </div>
-            </div>
-        </section>
+<header class="nav">
+  <a class="brand" href="index.html"><img src="public/icons/icon-64.png" alt="" width="20" height="20">Spectril</a>
+  <nav aria-label="Pages">
+    <ul><li><a href="index.html" class="on" aria-current="page">Home</a></li><li><a href="nitrate.html">Nitrate</a></li><li><a href="technical.html">Technical</a></li><li><a href="progress.html">Progress</a></li><li><a href="build.html">Build guide</a></li><li><a href="https://github.com/MikeyBoi-N">GitHub</a></li></ul>
+  </nav>
+</header>
+<main>
+  <section class="hero wrap">
+    <div class="hgrid">
+      <div class="htext">
+        <p class="eyebrow rv">Open-source water instrument</p>
+        <h1 class="rv" style="--d:.08s">Know what's in the water.</h1>
+        <p class="lead rv" style="--d:.16s">Spectril is a handheld instrument for measuring nitrate in water, with optional modules for Raman, pH and dissolved solids. You build it yourself from about $1,500 in parts.</p>
+        <p class="status rv" style="--d:.24s"><i></i>In design. Nothing has been built or measured yet.</p>
+      </div>
+      <div class="hmodel rv" style="--d:.3s">
+        <div class="stage" id="stage" tabindex="0" role="application" aria-label="Device model. Drag or use the arrow keys to rotate it, and select a part to see its name.">
+          <svg viewBox="0 0 800 560" aria-hidden="true"></svg>
+        </div>
+      </div>
+      <aside class="cfg rv" style="--d:.38s" aria-label="Configure the device">
+        <h3>Configure</h3>
+        <button class="mod" type="button" disabled aria-pressed="true"><i></i><span><b>Core</b><small>Pi 5, touchscreen, GPS, battery, enclosure</small></span><span class="pr">$320</span></button>
+        <button class="mod" type="button" data-mod="probes" aria-pressed="true"><i></i><span><b>Water probes</b><small>pH, TDS, turbidity, temperature</small></span><span class="pr">$120</span></button>
+        <button class="mod" type="button" data-mod="uv" aria-pressed="true"><i></i><span><b>UV nitrate</b><small>235 and 275 nm LEDs, quartz cell</small></span><span class="pr">$510</span></button>
+        <button class="mod" type="button" data-mod="raman" aria-pressed="true"><i></i><span><b>Raman</b><small>785 nm laser, grating, camera. Uses the UV cell</small></span><span class="pr">$500</span></button>
+        <div class="tot"><span>Parts</span><strong id="total" aria-live="polite">$1,450</strong></div>
+        <p class="tsub">Estimates at one-off prices.</p>
+        <div class="view">
+          <button type="button" id="shell" aria-pressed="true">Enclosure</button>
+          <button type="button" id="reset">Reset view</button>
+        </div>
+        <div class="pick" id="pick" aria-live="polite"><p>Concept layout. The enclosure isn't designed yet, so sizes and positions are estimates.</p></div>
+      </aside>
+    </div>
+  </section>
 
-        <!-- Technology Section -->
-        <section class="content-section tech-bg">
-            <div class="tech-content">
-                <h2 class="tech-title">TECHNOLOGY</h2>
-                <p class="tech-intro">The fundamental operating principle of Spectril devices is Raman spectrography. This non-destructive technique analyzes the inelastic scattering of monochromatic laser light interacting with molecular vibrations within a sample. Because rotational-vibrational molecular structures provide a unique "fingerprint" for each molecule, Raman spectra allow for the unambiguous identification and quantitative measurement of compounds.</p>
-                
-                <p class="tech-intro">Spectril devices overcome the inherent challenges of field spectroscopy through sophisticated optical engineering and intelligent sensor integration. At the core of each system, holographic filters suppress the intense Rayleigh scattering that occurs at the laser excitation line, allowing for clear detection of the Stokes and anti-Stokes Raman signals that carry molecular identification information</p>
+  <section class="blk wrap" id="nitrate">
+    <p class="eyebrow rv">Nitrate</p>
+    <h2 class="rv">Nitrate is hard to measure outside a lab</h2>
+    <p class="lead rv">Nitrate gets into water from fertilizer, manure and septic systems. It has no colour, taste or smell. EPA limits it to 10 mg/L as nitrogen in drinking water because high levels are dangerous for infants. Getting a reliable number in the field is difficult for three reasons.</p>
+    <ul class="pts">
+      <li class="rv"><b>It absorbs deep-UV light</b>UV methods measure how much light nitrate absorbs near 220–240 nm. Ordinary glass and most plastics block those wavelengths.</li>
+      <li class="rv" style="--d:.06s"><b>Other things absorb the same light</b>Nitrite, dissolved organic matter and particles also absorb or scatter in that range, so a simple reading overstates nitrate.</li>
+      <li class="rv" style="--d:.12s"><b>Small drifts matter</b>At 235 nm the signal changes by about 20% for each nanometre the light source drifts, so temperature and LED ageing have to be tracked.</li>
+    </ul>
+    <div class="acts rv"><a class="btn" href="nitrate.html">How Spectril deals with this</a></div>
+  </section>
 
-                <div class="tech-trifold">
-                    <div class="tech-column">
-                        <h3>Spectril Green</h3>
-                        <p class="model-subtitle">532 nm Laser</p>
-                        <p>Entry-level, cost-effective model powered by a 532 nm laser, chosen for its affordability, reliability, and wide support.</p>
-                        <ul>
-                            <li>High excitation efficiency (∝λ⁻⁴)</li>
-                            <li>Wide spectral range: 65-4000 cm⁻¹</li>
-                            <li>Ideal for inorganic materials and minerals</li>
-                            <li>Perfect for proof-of-concept projects</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="tech-column">
-                        <h3>Spectril Red</h3>
-                        <p class="model-subtitle">785 nm Laser</p>
-                        <p>Mid-tier model with enhanced sensitivity, equipped with a 785 nm laser for higher efficacy in Raman spectroscopy.</p>
-                        <ul>
-                            <li>Optimized for 90% of Raman-active materials</li>
-                            <li>Reduced fluorescence interference</li>
-                            <li>Enhanced detection of nitrates, sulfates, phosphates</li>
-                            <li>Improved signal-to-noise ratio for low concentrations</li>
-                            <li>Balanced price-to-performance</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="tech-column">
-                        <h3>Spectril Pro</h3>
-                        <p class="model-subtitle">Advanced Research</p>
-                        <p>Top-tier research and field model with remote sensing capabilities and comprehensive environmental monitoring.</p>
-                        <ul>
-                            <li>Remote Raman analysis up to 5 meters</li>
-                            <li>Integrated microscope for real-time visualization</li>
-                            <li>Additional sensors: dissolved oxygen, pH, conductivity, TDS</li>
-                            <li>Scalable storage for extended projects</li>
-                            <li>Turbidity correction for data quality</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <p class="tech-intro"><br>The environmental sensor suite integrated into Spectril devices extends far beyond basic spectroscopic measurement, transforming each unit into a comprehensive water quality monitoring platform. Parameters such as conductivity, dissolved oxygen, pH, and total dissolved solids are measured concurrently with spectral data, providing the contextual information essential for accurate pollutant quantification in natural waters. Conductivity measurements prove particularly valuable as they correlate strongly with nitrate concentration variability, often indicating ionic contributions from agricultural runoff or industrial discharge. Turbidity sensing plays a critical role in optical interference correction, allowing the system to compensate for light scattering effects that would otherwise degrade spectral quality in sediment-laden or algae-rich samples.</p>
+  <section class="blk wrap" id="why">
+    <p class="eyebrow rv">Why it matters</p>
+    <h2 class="rv">Most testing happens in labs</h2>
+    <p class="lead rv">Public water systems test on a schedule set by law. Private wells, streams and farm ponds depend on someone taking a sample to a lab and waiting for the result.</p>
+    <svg class="wave" viewBox="0 0 1200 96" preserveAspectRatio="none" aria-hidden="true"><g><path d="M0 30.0 L12 32.5 L24 34.8 L36 36.8 L48 38.4 L60 39.5 L72 40.0 L84 39.8 L96 39.0 L108 37.7 L120 35.9 L132 33.7 L144 31.3 L156 28.7 L168 26.3 L180 24.1 L192 22.3 L204 21.0 L216 20.2 L228 20.0 L240 20.5 L252 21.6 L264 23.2 L276 25.2 L288 27.5 L300 30.0 L312 32.5 L324 34.8 L336 36.8 L348 38.4 L360 39.5 L372 40.0 L384 39.8 L396 39.0 L408 37.7 L420 35.9 L432 33.7 L444 31.3 L456 28.7 L468 26.3 L480 24.1 L492 22.3 L504 21.0 L516 20.2 L528 20.0 L540 20.5 L552 21.6 L564 23.2 L576 25.2 L588 27.5 L600 30.0 L612 32.5 L624 34.8 L636 36.8 L648 38.4 L660 39.5 L672 40.0 L684 39.8 L696 39.0 L708 37.7 L720 35.9 L732 33.7 L744 31.3 L756 28.7 L768 26.3 L780 24.1 L792 22.3 L804 21.0 L816 20.2 L828 20.0 L840 20.5 L852 21.6 L864 23.2 L876 25.2 L888 27.5 L900 30.0 L912 32.5 L924 34.8 L936 36.8 L948 38.4 L960 39.5 L972 40.0 L984 39.8 L996 39.0 L1008 37.7 L1020 35.9 L1032 33.7 L1044 31.3 L1056 28.7 L1068 26.3 L1080 24.1 L1092 22.3 L1104 21.0 L1116 20.2 L1128 20.0 L1140 20.5 L1152 21.6 L1164 23.2 L1176 25.2 L1188 27.5 L1200 30.0 L1212 32.5 L1224 34.8 L1236 36.8 L1248 38.4 L1260 39.5 L1272 40.0 L1284 39.8 L1296 39.0 L1308 37.7 L1320 35.9 L1332 33.7 L1344 31.3 L1356 28.7 L1368 26.3 L1380 24.1 L1392 22.3 L1404 21.0 L1416 20.2 L1428 20.0 L1440 20.5 L1452 21.6 L1464 23.2 L1476 25.2 L1488 27.5 L1500 30.0 L1512 32.5 L1524 34.8 L1536 36.8 L1548 38.4 L1560 39.5 L1572 40.0 L1584 39.8 L1596 39.0 L1608 37.7 L1620 35.9 L1632 33.7 L1644 31.3 L1656 28.7 L1668 26.3 L1680 24.1 L1692 22.3 L1704 21.0 L1716 20.2 L1728 20.0 L1740 20.5 L1752 21.6 L1764 23.2 L1776 25.2 L1788 27.5 L1800 30.0 L1812 32.5 L1824 34.8 L1836 36.8 L1848 38.4 L1860 39.5 L1872 40.0 L1884 39.8 L1896 39.0 L1908 37.7 L1920 35.9 L1932 33.7 L1944 31.3 L1956 28.7 L1968 26.3 L1980 24.1 L1992 22.3 L2004 21.0 L2016 20.2 L2028 20.0 L2040 20.5 L2052 21.6 L2064 23.2 L2076 25.2 L2088 27.5 L2100 30.0 L2112 32.5 L2124 34.8 L2136 36.8 L2148 38.4 L2160 39.5 L2172 40.0 L2184 39.8 L2196 39.0 L2208 37.7 L2220 35.9 L2232 33.7 L2244 31.3 L2256 28.7 L2268 26.3 L2280 24.1 L2292 22.3 L2304 21.0 L2316 20.2 L2328 20.0 L2340 20.5 L2352 21.6 L2364 23.2 L2376 25.2 L2388 27.5 L2400 30.0"/><path class="m" d="M0 59.5 L12 60.0 L24 59.6 L36 58.4 L48 56.4 L60 53.7 L72 50.6 L84 47.2 L96 43.6 L108 40.3 L120 37.3 L132 34.8 L144 33.1 L156 32.1 L168 32.1 L180 32.9 L192 34.5 L204 36.9 L216 39.8 L228 43.1 L240 46.6 L252 50.1 L264 53.3 L276 56.0 L288 58.1 L300 59.5 L312 60.0 L324 59.6 L336 58.4 L348 56.4 L360 53.7 L372 50.6 L384 47.2 L396 43.6 L408 40.3 L420 37.3 L432 34.8 L444 33.1 L456 32.1 L468 32.1 L480 32.9 L492 34.5 L504 36.9 L516 39.8 L528 43.1 L540 46.6 L552 50.1 L564 53.3 L576 56.0 L588 58.1 L600 59.5 L612 60.0 L624 59.6 L636 58.4 L648 56.4 L660 53.7 L672 50.6 L684 47.2 L696 43.6 L708 40.3 L720 37.3 L732 34.8 L744 33.1 L756 32.1 L768 32.1 L780 32.9 L792 34.5 L804 36.9 L816 39.8 L828 43.1 L840 46.6 L852 50.1 L864 53.3 L876 56.0 L888 58.1 L900 59.5 L912 60.0 L924 59.6 L936 58.4 L948 56.4 L960 53.7 L972 50.6 L984 47.2 L996 43.6 L1008 40.3 L1020 37.3 L1032 34.8 L1044 33.1 L1056 32.1 L1068 32.1 L1080 32.9 L1092 34.5 L1104 36.9 L1116 39.8 L1128 43.1 L1140 46.6 L1152 50.1 L1164 53.3 L1176 56.0 L1188 58.1 L1200 59.5 L1212 60.0 L1224 59.6 L1236 58.4 L1248 56.4 L1260 53.7 L1272 50.6 L1284 47.2 L1296 43.6 L1308 40.3 L1320 37.3 L1332 34.8 L1344 33.1 L1356 32.1 L1368 32.1 L1380 32.9 L1392 34.5 L1404 36.9 L1416 39.8 L1428 43.1 L1440 46.6 L1452 50.1 L1464 53.3 L1476 56.0 L1488 58.1 L1500 59.5 L1512 60.0 L1524 59.6 L1536 58.4 L1548 56.4 L1560 53.7 L1572 50.6 L1584 47.2 L1596 43.6 L1608 40.3 L1620 37.3 L1632 34.8 L1644 33.1 L1656 32.1 L1668 32.1 L1680 32.9 L1692 34.5 L1704 36.9 L1716 39.8 L1728 43.1 L1740 46.6 L1752 50.1 L1764 53.3 L1776 56.0 L1788 58.1 L1800 59.5 L1812 60.0 L1824 59.6 L1836 58.4 L1848 56.4 L1860 53.7 L1872 50.6 L1884 47.2 L1896 43.6 L1908 40.3 L1920 37.3 L1932 34.8 L1944 33.1 L1956 32.1 L1968 32.1 L1980 32.9 L1992 34.5 L2004 36.9 L2016 39.8 L2028 43.1 L2040 46.6 L2052 50.1 L2064 53.3 L2076 56.0 L2088 58.1 L2100 59.5 L2112 60.0 L2124 59.6 L2136 58.4 L2148 56.4 L2160 53.7 L2172 50.6 L2184 47.2 L2196 43.6 L2208 40.3 L2220 37.3 L2232 34.8 L2244 33.1 L2256 32.1 L2268 32.1 L2280 32.9 L2292 34.5 L2304 36.9 L2316 39.8 L2328 43.1 L2340 46.6 L2352 50.1 L2364 53.3 L2376 56.0 L2388 58.1 L2400 59.5"/><path d="M0 67.4 L12 65.8 L24 63.9 L36 61.9 L48 59.9 L60 58.1 L72 56.5 L84 55.2 L96 54.4 L108 54.0 L120 54.2 L132 54.8 L144 55.9 L156 57.4 L168 59.1 L180 61.1 L192 63.1 L204 65.0 L216 66.8 L228 68.2 L240 69.3 L252 69.9 L264 70.0 L276 69.6 L288 68.7 L300 67.4 L312 65.8 L324 63.9 L336 61.9 L348 59.9 L360 58.1 L372 56.5 L384 55.2 L396 54.4 L408 54.0 L420 54.2 L432 54.8 L444 55.9 L456 57.4 L468 59.1 L480 61.1 L492 63.1 L504 65.0 L516 66.8 L528 68.2 L540 69.3 L552 69.9 L564 70.0 L576 69.6 L588 68.7 L600 67.4 L612 65.8 L624 63.9 L636 61.9 L648 59.9 L660 58.1 L672 56.5 L684 55.2 L696 54.4 L708 54.0 L720 54.2 L732 54.8 L744 55.9 L756 57.4 L768 59.1 L780 61.1 L792 63.1 L804 65.0 L816 66.8 L828 68.2 L840 69.3 L852 69.9 L864 70.0 L876 69.6 L888 68.7 L900 67.4 L912 65.8 L924 63.9 L936 61.9 L948 59.9 L960 58.1 L972 56.5 L984 55.2 L996 54.4 L1008 54.0 L1020 54.2 L1032 54.8 L1044 55.9 L1056 57.4 L1068 59.1 L1080 61.1 L1092 63.1 L1104 65.0 L1116 66.8 L1128 68.2 L1140 69.3 L1152 69.9 L1164 70.0 L1176 69.6 L1188 68.7 L1200 67.4 L1212 65.8 L1224 63.9 L1236 61.9 L1248 59.9 L1260 58.1 L1272 56.5 L1284 55.2 L1296 54.4 L1308 54.0 L1320 54.2 L1332 54.8 L1344 55.9 L1356 57.4 L1368 59.1 L1380 61.1 L1392 63.1 L1404 65.0 L1416 66.8 L1428 68.2 L1440 69.3 L1452 69.9 L1464 70.0 L1476 69.6 L1488 68.7 L1500 67.4 L1512 65.8 L1524 63.9 L1536 61.9 L1548 59.9 L1560 58.1 L1572 56.5 L1584 55.2 L1596 54.4 L1608 54.0 L1620 54.2 L1632 54.8 L1644 55.9 L1656 57.4 L1668 59.1 L1680 61.1 L1692 63.1 L1704 65.0 L1716 66.8 L1728 68.2 L1740 69.3 L1752 69.9 L1764 70.0 L1776 69.6 L1788 68.7 L1800 67.4 L1812 65.8 L1824 63.9 L1836 61.9 L1848 59.9 L1860 58.1 L1872 56.5 L1884 55.2 L1896 54.4 L1908 54.0 L1920 54.2 L1932 54.8 L1944 55.9 L1956 57.4 L1968 59.1 L1980 61.1 L1992 63.1 L2004 65.0 L2016 66.8 L2028 68.2 L2040 69.3 L2052 69.9 L2064 70.0 L2076 69.6 L2088 68.7 L2100 67.4 L2112 65.8 L2124 63.9 L2136 61.9 L2148 59.9 L2160 58.1 L2172 56.5 L2184 55.2 L2196 54.4 L2208 54.0 L2220 54.2 L2232 54.8 L2244 55.9 L2256 57.4 L2268 59.1 L2280 61.1 L2292 63.1 L2304 65.0 L2316 66.8 L2328 68.2 L2340 69.3 L2352 69.9 L2364 70.0 L2376 69.6 L2388 68.7 L2400 67.4"/><path d="M0 72.7 L12 70.2 L24 68.2 L36 66.8 L48 66.1 L60 66.1 L72 66.9 L84 68.4 L96 70.5 L108 73.1 L120 76.0 L132 79.0 L144 81.9 L156 84.6 L168 86.9 L180 88.6 L192 89.7 L204 90.0 L216 89.6 L228 88.4 L240 86.6 L252 84.2 L264 81.5 L276 78.5 L288 75.5 L300 72.7 L312 70.2 L324 68.2 L336 66.8 L348 66.1 L360 66.1 L372 66.9 L384 68.4 L396 70.5 L408 73.1 L420 76.0 L432 79.0 L444 81.9 L456 84.6 L468 86.9 L480 88.6 L492 89.7 L504 90.0 L516 89.6 L528 88.4 L540 86.6 L552 84.2 L564 81.5 L576 78.5 L588 75.5 L600 72.7 L612 70.2 L624 68.2 L636 66.8 L648 66.1 L660 66.1 L672 66.9 L684 68.4 L696 70.5 L708 73.1 L720 76.0 L732 79.0 L744 81.9 L756 84.6 L768 86.9 L780 88.6 L792 89.7 L804 90.0 L816 89.6 L828 88.4 L840 86.6 L852 84.2 L864 81.5 L876 78.5 L888 75.5 L900 72.7 L912 70.2 L924 68.2 L936 66.8 L948 66.1 L960 66.1 L972 66.9 L984 68.4 L996 70.5 L1008 73.1 L1020 76.0 L1032 79.0 L1044 81.9 L1056 84.6 L1068 86.9 L1080 88.6 L1092 89.7 L1104 90.0 L1116 89.6 L1128 88.4 L1140 86.6 L1152 84.2 L1164 81.5 L1176 78.5 L1188 75.5 L1200 72.7 L1212 70.2 L1224 68.2 L1236 66.8 L1248 66.1 L1260 66.1 L1272 66.9 L1284 68.4 L1296 70.5 L1308 73.1 L1320 76.0 L1332 79.0 L1344 81.9 L1356 84.6 L1368 86.9 L1380 88.6 L1392 89.7 L1404 90.0 L1416 89.6 L1428 88.4 L1440 86.6 L1452 84.2 L1464 81.5 L1476 78.5 L1488 75.5 L1500 72.7 L1512 70.2 L1524 68.2 L1536 66.8 L1548 66.1 L1560 66.1 L1572 66.9 L1584 68.4 L1596 70.5 L1608 73.1 L1620 76.0 L1632 79.0 L1644 81.9 L1656 84.6 L1668 86.9 L1680 88.6 L1692 89.7 L1704 90.0 L1716 89.6 L1728 88.4 L1740 86.6 L1752 84.2 L1764 81.5 L1776 78.5 L1788 75.5 L1800 72.7 L1812 70.2 L1824 68.2 L1836 66.8 L1848 66.1 L1860 66.1 L1872 66.9 L1884 68.4 L1896 70.5 L1908 73.1 L1920 76.0 L1932 79.0 L1944 81.9 L1956 84.6 L1968 86.9 L1980 88.6 L1992 89.7 L2004 90.0 L2016 89.6 L2028 88.4 L2040 86.6 L2052 84.2 L2064 81.5 L2076 78.5 L2088 75.5 L2100 72.7 L2112 70.2 L2124 68.2 L2136 66.8 L2148 66.1 L2160 66.1 L2172 66.9 L2184 68.4 L2196 70.5 L2208 73.1 L2220 76.0 L2232 79.0 L2244 81.9 L2256 84.6 L2268 86.9 L2280 88.6 L2292 89.7 L2304 90.0 L2316 89.6 L2328 88.4 L2340 86.6 L2352 84.2 L2364 81.5 L2376 78.5 L2388 75.5 L2400 72.7"/></g></svg>
+    <ul class="stats">
+      <li class="rv"><strong>2.2 billion</strong><p>people lacked safely managed drinking water in 2022.</p><a href="https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health/monitoring-and-evidence/wash-monitoring">WHO and UNICEF</a></li>
+      <li class="rv" style="--d:.08s"><strong>43 million</strong><p>people in the US rely on private wells. Federal law doesn't regulate their water quality.</p><a href="https://www.usgs.gov/mission-areas/water-resources/science/domestic-private-supply-wells">USGS</a></li>
+      <li class="rv" style="--d:.16s"><strong>10 mg/L</strong><p>is EPA's limit for nitrate, as nitrogen, in public drinking water. It's the first thing Spectril is designed to check.</p><a href="https://www.epa.gov/ground-water-and-drinking-water/national-primary-drinking-water-regulations">EPA</a></li>
+    </ul>
+  </section>
 
-                <p class="tech-intro">Every Spectril device is built around a Raspberry Pi embedded system, chosen specifically for its minimal power consumption, compact form factor, and extensive community support for field instrumentation applications. This processing architecture enables sophisticated onboard data analysis, real-time spectral visualization, and automated calibration routines while maintaining the portability essential for remote deployment. Standard GPS integration across all models ensures that every measurement is geographically referenced, creating spatially aware datasets that can be mapped and analyzed to reveal pollution patterns, identify contamination sources, and track water quality trends over time. The combination of embedded processing, comprehensive sensing, and location awareness makes Spectril devices uniquely suited for both stationary monitoring stations and mobile survey applications.</p>
-            </div>
-        </section>
+  <section class="blk wrap" id="how">
+    <p class="eyebrow rv">Hardware</p>
+    <h2 class="rv">How a test works</h2>
+    <p class="lead rv">You filter a sample into a small quartz cell. Two UV LEDs shine through the lower half of the cell, and a photodiode measures how much light gets through. If the Raman module is fitted, a 785 nm laser passes through the upper half and a camera records the light it scatters.</p>
+    <ol class="steps">
+      <li class="rv"><b>Filter</b>A 0.45 µm syringe filter removes particles that would scatter light.</li>
+      <li class="rv" style="--d:.06s"><b>UV</b>235 nm measures nitrate. 275 nm measures organic matter so it can be corrected for.</li>
+      <li class="rv" style="--d:.12s"><b>Raman</b>Adds sulfate, and checks that a high UV reading really is nitrate.</li>
+      <li class="rv" style="--d:.18s"><b>Record</b>Raw readings, calibration, position and time are saved with every result.</li>
+    </ol>
+    <figure class="pn dia draw rv"><h3 class="pl"><i></i>Optical layout</h3><svg class="art" viewBox="0 0 1100 660" role="img" aria-label="Top view: a 785 nm laser passes through the quartz cell to a beam dump. Raman light leaves at a right angle, with a concave mirror behind the cell, through a collection lens, RG830 filter and grating into the camera. Side view: the UV beam crosses the same cell lower down at 10 mm and the laser at 25 mm"><title>Top view: a 785 nm laser passes through the quartz cell to a beam dump. Raman light leaves at a right angle, with a concave mirror behind the cell, through a collection lens, RG830 filter and grating into the camera. Side view: the UV beam crosses the same cell lower down at 10 mm and the laser at 25 mm</title><g class="hi"><g class="dim"><rect class="n d" x="14" y="24" width="1072" height="388" rx="8"/></g><text class="t s" x="26" y="48" text-anchor="start">Light-tight housing. Lid opens both switches.</text><rect class="f" x="190" y="165" width="100" height="100" rx="3"/><rect class="n" x="196" y="171" width="88" height="88"/><g class="hz"><path class="n tl" d="M240 340 L240 92"/><path class="dt" d="M240.0 92.0 L243.5 99.0 L236.5 99.0 Z"/><rect class="f" x="210" y="64" width="60" height="28" rx="3"/><rect class="f" x="200" y="340" width="80" height="60" rx="4"/><text class="t b hz" x="240" y="366" text-anchor="middle">Laser</text><text class="t s hz" x="240" y="386" text-anchor="middle">785 nm</text><text class="t s hz" x="250" y="130" text-anchor="start">Laser</text></g><rect class="f" x="218" y="314" width="44" height="7" rx="1"/><text class="t s" x="210" y="322" text-anchor="end">Cleanup filter, if needed</text><text class="t" x="280" y="83" text-anchor="start">Beam dump</text><text class="t s" x="292" y="366" text-anchor="start">About 90 mW diode with</text><text class="t s" x="292" y="384" text-anchor="start">driver and built-in lens</text><path class="n" d="M132 165 Q160 215 132 265" style="stroke-width:3"/><text class="t" x="24" y="124" text-anchor="start">Concave mirror</text><text class="t s" x="24" y="143" text-anchor="start">2.3× signal in one study</text><path class="n tl" d="M146 215 L240 215"/><path class="n tl" d="M240 215 L560 215"/><path class="dt" d="M560.0 215.0 L553.0 218.5 L553.0 211.5 Z"/><path class="n tl" d="M240 215 L360 180"/><path class="n tl" d="M240 215 L360 250"/><path class="n tl" d="M360 180 L560 180"/><path class="n tl" d="M360 250 L560 250"/><path class="f" d="M360 167.0 Q378 215 360 263.0 Q342 215 360 167.0 Z"/><rect class="f" x="456" y="166" width="8" height="98"/><rect class="f" x="560" y="162" width="7" height="106"/><path class="n tl" d="M567 180 L712 99"/><path class="n tl" d="M567 215 L728 127"/><path class="n tl" d="M567 250 L744 155"/><g class="dim"><path class="n tl" d="M567 215 L660 215"/><path class="dt" d="M660.0 215.0 L653.0 218.5 L653.0 211.5 Z"/></g><text class="t s" x="668" y="220" text-anchor="start">Zero order: absorbed</text><g transform="translate(728,127) rotate(-30)"><rect class="f" x="0" y="-36" width="92" height="72" rx="4"/><path class="f" d="M12 -28 Q24 0 12 28 Q0 0 12 -28 Z"/><path class="n" d="M78 -26 L78 26" style="stroke-width:3"/></g><text class="t" x="850" y="92" text-anchor="start">Camera</text><text class="t s" x="850" y="111" text-anchor="start">IMX708 NoIR, own lens</text><text class="t s" x="850" y="129" text-anchor="start">CAM/DISP 0</text><text class="t" x="360" y="296" text-anchor="middle">Collection lens</text><text class="t s" x="360" y="314" text-anchor="middle">About 50 mm</text><text class="t" x="460" y="296" text-anchor="middle">RG830 filter</text><text class="t s" x="460" y="314" text-anchor="middle">Blocks laser</text><text class="t" x="563" y="296" text-anchor="middle">Grating</text><text class="t s" x="563" y="314" text-anchor="middle">600 lines/mm</text><text class="t" x="300" y="150" text-anchor="start">Quartz cell</text><text class="t s" x="385" y="170" text-anchor="start">Raman</text><text class="t s" x="650" y="324" text-anchor="start">No slit: the laser line in the cell acts as the slit.</text><text class="t s" x="650" y="342" text-anchor="start">Software adds the camera rows along that line.</text><text class="t b" x="24" y="444" text-anchor="start">Side view from the camera</text><rect class="f" x="210" y="460" width="100" height="180" rx="3"/><g class="dim"><path class="n d" d="M210 520 L310 520"/></g><text class="t s" x="320" y="512" text-anchor="start">Fill to 30 mm</text><g class="hz"><path class="n tl" d="M130 540 L420 540"/><path class="dt" d="M420.0 540.0 L413.0 543.5 L413.0 536.5 Z"/><path class="n tl d" d="M130 600 L420 600"/><path class="dt" d="M420.0 600.0 L413.0 603.5 L413.0 596.5 Z"/><path class="n tl d" d="M130 608 L150 622"/><path class="dt" d="M150.0 622.0 L142.3 620.9 L146.3 615.1 Z"/><rect class="f" x="70" y="527" width="60" height="26" rx="3"/><rect class="f" x="70" y="587" width="60" height="26" rx="3"/></g><circle class="f" cx="260" cy="540" r="8"/><circle class="dt" cx="260" cy="540" r="3"/><text class="t s" x="260" y="561" text-anchor="middle">To camera</text><text class="t s" x="200" y="535" text-anchor="end">25 mm</text><text class="t s" x="200" y="595" text-anchor="end">10 mm</text><rect class="f" x="420" y="527" width="56" height="26" rx="3"/><rect class="f" x="420" y="587" width="56" height="26" rx="3"/><rect class="f" x="150" y="618" width="36" height="16" rx="2"/><text class="t" x="70" y="521" text-anchor="start">Laser</text><text class="t" x="70" y="581" text-anchor="start">UV LEDs</text><text class="t s" x="144" y="642" text-anchor="end">Reference diode</text><text class="t" x="420" y="521" text-anchor="start">Beam dump</text><text class="t" x="420" y="581" text-anchor="start">Sample diode</text><text class="t b" x="580" y="444" text-anchor="start">Where bands land with a 785 nm laser</text><g class="dim"><rect class="n d" x="580.0" y="540" width="170.0" height="60"/></g><text class="t s" x="609.0" y="582" text-anchor="start">Blocked by RG830</text><g class="hz"><path class="n" d="M597.0 600 L597.0 530" style="stroke-width:2"/></g><g class="hz"><text class="t hz" x="597.0" y="522" text-anchor="middle">Laser 785</text></g><path class="n tl" d="M580.0 600 L1022.0 600"/><path class="n tl" d="M648.0 600 L648.0 606"/><text class="t s" x="648.0" y="624" text-anchor="middle">800</text><path class="n tl" d="M818.0 600 L818.0 606"/><text class="t s" x="818.0" y="624" text-anchor="middle">850</text><path class="n tl" d="M988.0 600 L988.0 606"/><text class="t s" x="988.0" y="624" text-anchor="middle">900</text><text class="t s" x="1022.0" y="624" text-anchor="start">nm</text><path class="n" d="M819.7 600 L819.7 510" style="stroke-width:2"/><path class="n" d="M835.7 600 L835.7 494" style="stroke-width:2"/><path class="n" d="M991.4 600 L991.4 560" style="stroke-width:2"/><text class="t" x="815.7" y="516" text-anchor="end">Sulfate 851</text><text class="t" x="839.7" y="500" text-anchor="start">Nitrate 855</text><text class="t" x="991.4" y="552" text-anchor="middle">Water 901</text><text class="t s" x="580" y="646" text-anchor="start">Sulfate and nitrate sit 4.7 nm apart.</text></g></svg><figcaption class="cap">The camera views the laser from the side, so very little laser light reaches it. That removes the need for a slit or a dichroic mirror, and the light path needs only two lenses.</figcaption></figure>
+    <figure class="pn dia draw seq rv"><h3 class="pl"><i></i>Order of readings in one test</h3><svg class="art" viewBox="0 0 1100 300" role="img" aria-label="Timing lanes for one test: dark reading, 275 nm pulse, 235 nm pulse, Raman dark frame, Raman lit frame with the laser on, then 235 nm again"><title>Timing lanes for one test: dark reading, 275 nm pulse, 235 nm pulse, Raman dark frame, Raman lit frame with the laser on, then 235 nm again</title><g class="hi"><text class="t b" x="190.0" y="30" text-anchor="middle">Dark</text><text class="t s" x="190.0" y="288" text-anchor="middle">Offset, room light</text><text class="t b" x="295.0" y="30" text-anchor="middle">275 nm</text><text class="t s" x="295.0" y="288" text-anchor="middle">Organics</text><text class="t b" x="410.0" y="30" text-anchor="middle">235 nm</text><text class="t s" x="410.0" y="288" text-anchor="middle">Nitrate + nitrite</text><text class="t b" x="565.0" y="30" text-anchor="middle">Raman dark</text><text class="t s" x="565.0" y="288" text-anchor="middle">Camera background</text><text class="t b" x="755.0" y="30" text-anchor="middle">Raman lit</text><text class="t s" x="755.0" y="288" text-anchor="middle">Raman + background</text><text class="t b" x="925.0" y="30" text-anchor="middle">235 nm again</text><text class="t s" x="925.0" y="288" text-anchor="middle">Heating, settling</text><g class="dim"><path class="n d" d="M140 42 L140 268"/></g><g class="dim"><path class="n d" d="M240 42 L240 268"/></g><g class="dim"><path class="n d" d="M350 42 L350 268"/></g><g class="dim"><path class="n d" d="M470 42 L470 268"/></g><g class="dim"><path class="n d" d="M660 42 L660 268"/></g><g class="dim"><path class="n d" d="M850 42 L850 268"/></g><g class="dim"><path class="n d" d="M1000 42 L1000 268"/></g><text class="t" x="20" y="78" text-anchor="start">275 nm LED</text><g class="hz"><path class="n" d="M140 76 L240 76 L250 76 L250 54 L340 54 L340 76 L350 76 L470 76 L660 76 L850 76 L1000 76" style="stroke-width:1.6"/></g><text class="t" x="20" y="122" text-anchor="start">235 nm LED</text><g class="hz"><path class="n" d="M140 120 L240 120 L350 120 L360 120 L360 98 L460 98 L460 120 L470 120 L660 120 L850 120 L860 120 L860 98 L990 98 L990 120 L1000 120" style="stroke-width:1.6"/></g><text class="t" x="20" y="166" text-anchor="start">Laser</text><g class="hz"><path class="n" d="M140 164 L240 164 L350 164 L470 164 L660 164 L670 164 L670 142 L840 142 L840 164 L850 164 L1000 164" style="stroke-width:1.6"/></g><text class="t" x="20" y="210" text-anchor="start">Diodes read</text><path class="n" d="M140 208 L150 208 L150 186 L230 186 L230 208 L240 208 L250 208 L250 186 L340 186 L340 208 L350 208 L360 208 L360 186 L460 186 L460 208 L470 208 L660 208 L850 208 L860 208 L860 186 L990 186 L990 208 L1000 208" style="stroke-width:1.6"/><text class="t" x="20" y="254" text-anchor="start">Camera exposes</text><path class="n" d="M140 252 L240 252 L350 252 L470 252 L480 252 L480 230 L650 230 L650 252 L660 252 L670 252 L670 230 L840 230 L840 252 L850 252 L1000 252" style="stroke-width:1.6"/><g class="ph hz"><path class="n" d="M140 40 L140 268" style="stroke-width:2"/></g></g></svg><figcaption class="cap">The UV readings come before the laser, so heat from the laser can't affect them. If the second 235 nm reading doesn't match the first, the test is rejected.</figcaption></figure>
+  </section>
 
-        <!-- Applications Section -->
-            <section class="cards-grid">
-                <div class="application-card">
-                    <img src="public/images/applications_section/microplastics.png" alt="Microplastics">
-                </div>
-                <div class="application-card">
-                    <img src="public/images/applications_section/skip_the_lab.png" alt="Skip The Lab">
-                </div>
-                <div class="application-card">
-                    <img src="public/images/applications_section/nutrient_pollution.png" alt="Nutrient Pollution">
-                </div>
-                <div class="application-card">
-                    <img src="public/images/applications_section/ai_powered.png" alt="AI Powered">
-                </div>
-            </section>
+  <section class="blk wrap" id="accuracy">
+    <p class="eyebrow rv">Accuracy</p>
+    <h2 class="rv">How results are checked</h2>
+    <p class="lead rv">Low-cost sensors can drift without anyone noticing. Spectril runs a set of checks during every test, and it reports a range with a verdict instead of a bare number.</p>
+    <div class="two">
+      <figure class="pn draw rv vfig"><svg class="art" viewBox="0 0 640 270" role="img" aria-label="Three example result ranges: one below the 10 mg/L limit, one crossing it, one above it"><title>Example result ranges against the nitrate limit</title><g class="hi"><path class="n tl" d="M40 214 L600 214"/><path class="n tl" d="M40 214 L40 220"/><text class="t s" x="40" y="240" text-anchor="middle">0</text><path class="n tl" d="M180 214 L180 220"/><text class="t s" x="180" y="240" text-anchor="middle">5</text><path class="n tl" d="M320 214 L320 220"/><text class="t s" x="320" y="240" text-anchor="middle">10</text><path class="n tl" d="M460 214 L460 220"/><text class="t s" x="460" y="240" text-anchor="middle">15</text><path class="n tl" d="M600 214 L600 220"/><text class="t s" x="600" y="240" text-anchor="middle">20</text><text class="t s" x="600" y="260" text-anchor="end">mg/L nitrate as N</text><g class="dim"><path class="n d" d="M180 34 L180 214"/></g><text class="t s" x="174" y="28" text-anchor="end">Half the limit</text><g class="hz"><path class="n" d="M320 34 L320 214" style="stroke-width:1.6"/></g><text class="t hz" x="326" y="28">EPA limit</text><path class="n" d="M140.8 60 L168.79999999999998 60" style="stroke-width:3"/><path class="n" d="M140.8 53 L140.8 67 M168.79999999999998 53 L168.79999999999998 67"/><circle class="dt" cx="154.8" cy="60" r="3.5"/><text class="t" x="182.79999999999998" y="65">Below limit</text><path class="n" d="M292.0 112 L336.8 112" style="stroke-width:3"/><path class="n" d="M292.0 105 L292.0 119 M336.8 105 L336.8 119"/><circle class="dt" cx="314.4" cy="112" r="3.5"/><text class="t" x="350.8" y="117">Near limit: send a split sample to a lab</text><path class="n" d="M415.2 164 L465.59999999999997 164" style="stroke-width:3"/><path class="n" d="M415.2 157 L415.2 171 M465.59999999999997 157 L465.59999999999997 171"/><circle class="dt" cx="440.4" cy="164" r="3.5"/><text class="t" x="479.59999999999997" y="169">Above limit</text></g></svg><figcaption class="cap">An illustration of how results are reported. These aren't measured results.</figcaption></figure>
+      <ol class="plain">
+        <li class="rv"><span><b>Blank first.</b> Each test starts with deionized water in the same cell.</span></li>
+        <li class="rv"><span><b>Reference diode.</b> A second photodiode watches the LEDs directly, so changes in LED brightness cancel out.</span></li>
+        <li class="rv"><span><b>Dark readings.</b> Readings with the LEDs off remove room light and amplifier offset.</span></li>
+        <li class="rv"><span><b>Temperature.</b> The sample temperature is used to correct the result.</span></li>
+        <li class="rv"><span><b>Repeat reading.</b> The 235 nm reading is taken again at the end. If it has moved, the test is rejected.</span></li>
+        <li class="rv"><span><b>Check standard.</b> A 10 mg/L nitrate standard is run regularly to confirm the unit still reads correctly.</span></li>
+      </ol>
+    </div>
+    <p class="note rv">Design targets: within ±10% at 1 mg/L as nitrogen and above, a detection limit of 1 mg/L, and no sample over the limit reported as clear. <a href="technical.html">Full specifications</a></p>
+  </section>
 
-        <!-- Data Section -->
-        <section class="content-section alt-bg">
-            <div class="section-content reverse">
-                <div class="section-text">
-                    <h2>DATA</h2>
-                    <p>Spectral Baseline Correction: Accurate analysis in Raman spectroscopy requires robust baseline correction to isolate the weak molecular signals from strong background interference, often caused by fluorescence. Spectril systems implement automated calibration routines that utilize techniques designed for optimal performance, such as algorithms based on penalized least squares (e.g., AirPLS) or newer hybrid deep learning methods. These advanced methods significantly enhance the signal-to-noise ratio (SNR) by removing polynomial and exponential backgrounds derived from fluorescence or Rayleigh scattering, often achieving tenfold improvements over raw spectra</p>
-                    
-                    <h3><br>Spectral Preprocessing and Data Quality</h3>
-                    <p>The foundation of Spectril's analytical capabilities rests on rigorous spectral preprocessing that transforms raw Raman measurements into chemically meaningful signals. Automated baseline correction algorithms, particularly those based on penalized least squares such as Asymmetrically Reweighted Penalized Least Squares (AirPLS), systematically remove the polynomial and exponential backgrounds that arise from fluorescence and residual Rayleigh scattering. These methods adaptively fit the baseline while preserving the integrity of genuine Raman peaks, often achieving signal-to-noise ratio improvements exceeding tenfold compared to uncorrected spectra. More recent hybrid approaches incorporating deep learning architectures further enhance correction performance in challenging field conditions where fluorescence interference varies unpredictably. This preprocessing pipeline is complemented by comprehensive data hygiene protocols including outlier detection using statistical distance metrics, intelligent missing value imputation based on spectral similarity, and normalization schemes that account for variations in laser power and integration time across measurement sessions.</p>
+  <section class="blk wrap" id="compare">
+    <p class="eyebrow rv">Compared with other options</p>
+    <h2 class="rv">What's different about it</h2>
+    <p class="lead rv">Nothing is added to the sample, and every result keeps the raw readings behind it, so anyone can check the work. A certified lab is still the only way to get a compliance result. Spectril helps decide which samples need one.</p>
+    <div class="tw rv"><table class="cmp">
+      <thead><tr><th scope="col"></th><th scope="col">Test strips</th><th scope="col">Electrode meter</th><th scope="col">Certified lab</th><th scope="col">Spectril</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Added to the sample</th><td>Reagent pad</td><td>Usually an ionic strength buffer</td><td>Depends on the method</td><td>Nothing</td></tr>
+        <tr><th scope="row">How it's read</th><td>Colour matched by eye</td><td>Electrode voltage</td><td>Lab instrument</td><td>UV absorbance at two wavelengths, plus optional Raman</td></tr>
+        <tr><th scope="row">Main weakness</th><td>Coarse steps on a colour chart</td><td>Other ions, such as chloride, interfere</td><td>Takes days and costs money per sample</td><td>Not yet tested. Nitrite reads as nitrate</td></tr>
+        <tr><th scope="row">Record kept</th><td>None</td><td>Usually none</td><td>Certified report</td><td>Raw readings, calibration, position and time</td></tr>
+        <tr><th scope="row">Compliance result</th><td>No</td><td>No</td><td>Yes</td><td>No</td></tr>
+      </tbody>
+    </table></div>
+  </section>
 
-                    <h3><br>Chemometric Analysis and Quantification</h3>
-                    <p>For quantitative pollutant analysis, Spectril employs chemometric techniques that exploit the fundamental relationship between Raman intensity and molecular concentration. The system maintains an extensive reference spectral library, enabling the construction of calibration models through multivariate regression methods. Partial Least Squares (PLS) regression proves particularly valuable for complex environmental samples where spectral overlap between chemical species creates analytical challenges that univariate approaches cannot resolve. PLS decomposes the spectral data into latent variables that capture the maximum covariance between the measured spectra and target analyte concentrations, enabling simultaneous quantification of multiple species even in matrices as challenging as estuarine waters with variable salinity.</p>
+  <section class="blk wrap" id="measures">
+    <p class="eyebrow rv">Measurements</p>
+    <h2 class="rv">What it measures</h2>
+    <div class="tw rv"><table>
+      <thead><tr><th scope="col">Reading</th><th scope="col">Method</th><th scope="col">Use</th></tr></thead>
+      <tbody>
+        <tr><td>Nitrate</td><td>UV, 235 nm</td><td>Main reading, against 10 mg/L as nitrogen</td></tr>
+        <tr><td>Organic matter</td><td>UV, 275 nm</td><td>Corrects the nitrate reading</td></tr>
+        <tr><td>Sulfate</td><td>Raman</td><td>High levels only. Marginal at the 250 mg/L guideline</td></tr>
+        <tr><td>Nitrate check</td><td>Raman</td><td>Confirms high UV readings, if bench tests pass</td></tr>
+        <tr><td>pH</td><td>Probe</td><td>Against 6.5–8.5</td></tr>
+        <tr><td>Total dissolved solids</td><td>Probe</td><td>Against 500 mg/L</td></tr>
+        <tr><td>Temperature</td><td>Probe</td><td>Corrects the other readings</td></tr>
+        <tr><td>Turbidity</td><td>Probe</td><td>Flags samples that need filtering</td></tr>
+        <tr><td>Position and time</td><td>GPS</td><td>Saved with every result</td></tr>
+      </tbody>
+    </table></div>
+  </section>
 
-                    <h3><br>Key capabilities include:</h3>
-                    <ul>
-                        <li>Detection limits suitable for regulatory compliance monitoring across environmentally relevant concentration ranges</li>
-                        <li>Simultaneous quantification of multiple chemical species (nitrates, nitrites, phosphates) from a single spectrum</li>
-                        <li>Matrix effect compensation through integration of auxiliary sensor data (conductivity, pH, temperature, dissolved oxygen)</li>
-                    </ul>
-                    <h3><br>Advanced Machine Learning Applications</h3>
-                    <p>When addressing highly nonlinear environmental relationships, Spectril extends beyond traditional chemometric methods to leverage advanced machine learning architectures tailored to specific analytical challenges:<br></p>
-                    <ul>
-                        <li>Microplastic Identification: One-dimensional convolutional neural networks process raw Raman spectra to automatically extract discriminative spectral features characteristic of different polymer types, eliminating the need for manual peak assignment and achieving classification accuracies exceeding traditional methods like Support Vector Machines. The Spectril Pro model's integrated microscopy capability enables complementary image-based classification using two-dimensional CNNs trained to recognize microplastic particles by morphological characteristics, creating a multimodal identification system that cross-validates spectroscopic and visual evidence.</li>
-                        <li>Predictive Water Quality Modeling: For predicting complex water quality dynamics such as seasonal nitrate fluctuations in agricultural watersheds, Generalized Additive Mixed Models (GAMMs) combine the multi-sensor environmental data streams with temporal and spatial covariates, capturing nonlinear relationships through flexible spline-based smoothing functions while accounting for hierarchical data structures arising from repeated measurements at monitoring sites. This sophisticated modeling framework transforms the Spectril platform from a simple analytical instrument into an intelligent environmental monitoring system capable of both immediate pollutant identification and predictive water quality forecasting.<br></li>
-                    </ul>
-                    <h3></h3>
-                    <p></p>
+  <section class="blk wrap" id="build">
+    <p class="eyebrow rv">Build</p>
+    <h2 class="rv">Build one yourself</h2>
+    <p class="lead rv">Spectril isn't sold. The parts list, wiring diagrams and a 37-step build guide are published, and the parts come to about $1,500 at one-off prices.</p>
+    <div class="acts rv">
+      <a class="btn pri" href="build.html">Open the build guide</a>
+      <a class="btn" href="https://github.com/MikeyBoi-N">View on GitHub</a>
+    </div>
+    <div class="tw rv"><table>
+      <thead><tr><th scope="col">Module</th><th scope="col">Parts</th><th scope="col">Cost</th></tr></thead>
+      <tbody>
+        <tr><td>Core</td><td>Raspberry Pi 5, UPS HAT, display, GPS HAT, cells, two ADS1115 boards</td><td class="mono">$260</td></tr>
+        <tr><td>Enclosure</td><td>Printed housing, standoffs, wiring</td><td class="mono">$60</td></tr>
+        <tr><td>Water probes</td><td>pH, TDS, two isolators, turbidity, temperature</td><td class="mono">$120</td></tr>
+        <tr><td>UV nitrate</td><td>235 and 275 nm LEDs, two SiC photodiodes, four-window quartz cell, drivers</td><td class="mono">$510</td></tr>
+        <tr><td>Raman</td><td>785 nm diode and driver, filters, grating, lens, mirror, camera</td><td class="mono">$500</td></tr>
+        <tr class="sum"><td>All modules</td><td></td><td class="mono">$1,450</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note rv">Tools, laser safety glasses and test supplies are extra.</p>
+  </section>
 
+  <section class="blk wrap" id="licence">
+    <p class="eyebrow rv">Licence</p>
+    <h2 class="rv">Free to copy, change and sell</h2>
+    <p class="lead rv">You can build Spectril, change it, or make and sell your own version, including as a closed product. Keep the copyright notice and credit the project.</p>
+    <div class="tw rv"><table>
+      <thead><tr><th scope="col">Part</th><th scope="col">Licence</th><th scope="col">Covers</th></tr></thead>
+      <tbody>
+        <tr><td>Hardware</td><td><a href="https://ohwr.org/cern_ohl_p_v2.txt">CERN-OHL-P-2.0</a></td><td>Enclosure, wiring, optical layout, parts list</td></tr>
+        <tr><td>Software</td><td><a href="https://opensource.org/license/mit">MIT</a></td><td>Firmware, analysis code, this website's code</td></tr>
+        <tr><td>Documentation</td><td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></td><td>Build guide, diagrams, research notes, website text</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note rv">All three come without warranty. Spectril isn't a certified instrument, so use a certified lab for compliance testing.</p>
+  </section>
 
+  <section class="blk wrap" id="progress">
+    <p class="eyebrow rv">Progress</p>
+    <h2 class="rv">Prototype progress</h2>
+    <div id="progress-summary"><noscript><p class="lead">See the <a href="progress.html">progress page</a>.</p></noscript></div>
+    <div class="acts rv"><a class="btn" href="progress.html">Open the tracker</a></div>
+  </section>
 
-                </div>
-            </div>
-        </section>
+  <section class="blk wrap maker" id="about">
+    <p class="eyebrow rv">About</p>
+    <h2 class="rv">Who's building it</h2>
+    <p class="rv">I'm Michael Nehring. Spectril is a side project: I have a day job, and I pay for the parts myself. I work on it because I enjoy the science, the engineering and the code, and because I think water testing should be easier to do.</p>
+    <p class="rv">Progress is slow, but it's ongoing. Following along is enough. If you'd like to help pay for parts, you can sponsor the project.</p>
+    <div class="acts rv">
+      <a class="btn" href="https://github.com/sponsors/MikeyBoi-N">Sponsor on GitHub</a>
+      <a class="btn" href="https://www.patreon.com/RadAssMikey">Patreon</a>
+    </div>
+  </section>
 
-        <!-- Sponsors Section -->
-        <section class="content-section hero-section-spectril">
-            <div class="section-content hero-content">
-                <div class="section-text hero-text">
-                    
-                    <h1>SPONSORS</h1>
-                    <h2 style="font-weight: 600; font-size: 30px;">It's just me...</h2>
-                    <h3>I'm developing Spectril as a solo side project while working a full-time job. The prototypes work and the science is solid, but turning these designs into reliable field instruments requires resources I simply don't have. Manufacturing quality optical components, buying certified reference materials for calibration, and running extensive field tests all cost money that's currently limiting how fast I can move this forward. Sponsorship would let me acquire better components, test across more water systems, and build the computational infrastructure needed for robust machine learning models.</br></h3>
-                    
-                    <h2 style="font-weight: 600; font-size: 30px;">Who benefits?</h2>
-                    <h3>Traditional Raman spectrometers cost tens of thousands of dollars, putting them out of reach for smaller labs, environmental nonprofits, and citizen science groups who need them most. I'm building Spectril as an open-source alternative. All designs, software, and methods shared publicly on GitHub. If you're interested in supporting accessible environmental monitoring technology, please reach out through the repository or contact me directly. Even small contributions help move this project from prototype to reality.</h3>
-                    
-                    <div class="center-button">
-                        <a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a>
-                    </div>
-                </div>
-                <div class="section-image hero-image">
-                    <img src="public\images\sponsor_trail.png" alt="Sponsor Path">
-                </div>
-            </div>
-        </section>
-
-    <script src="navbar.js"></script>
-    </main>
-
-    <footer></footer>
-
-    <script src="navbar.js"></script>
-    <script src="footer.js"></script>
-    <script src="script.js"></script>
+</main>
+<footer>
+  <div class="wrap">
+    <span>Spectril</span>
+    <a href="technical.html">Technical details</a>
+    <a href="build.html">Build guide</a>
+    <a href="https://github.com/MikeyBoi-N">GitHub</a>
+    <a href="index.html#licence">Licence</a>
+    <a href="mailto:mika.nehring@gmail.com">mika.nehring@gmail.com</a>
+    <span class="sp">Open-source water testing</span>
+  </div>
+</footer>
+<script src="progress.js"></script><script src="site.js"></script>
 </body>
 </html>

@@ -1,86 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Spectril</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="public/icons/icon.png" type="image/png">
+<meta charset="UTF-8">
+<title>Spectril</title>
+<meta http-equiv="refresh" content="0; url=index.html#maker">
+<link rel="canonical" href="index.html#maker">
 </head>
-<body>
-    <header></header>
-
-    <main>
-        <section>
-            <div class="about-container">
-                <div class="about-content">
-                    <h2>Our Mission</h2>
-                    <p>At Spectril, we are dedicated to advancing environmental science through cutting-edge technology. Our mission is to develop high-precision Raman spectrophotometers that provide detailed chemical and molecular analysis for a wide range of applications. We believe that by making this technology more accessible and powerful, we can contribute to a cleaner, healthier planet.</p>
-                    
-                    <h2>The Founder</h2>
-                    <p>Michael Nehring, the Founder & Principal Engineer of Spectril, is a passionate innovator with a deep commitment to environmental stewardship. With a background in engineering and a drive to solve complex challenges, Michael leads our team in pushing the boundaries of what's possible in spectroscopic analysis.</p>
-
-                    <h2>Note from the Founder</h2>
-                    <p style="font-size: 20px; font-weight: bold; font-family: monospace;">Hello!! Look, I gotta be real with you for a second here... <br>I have a day job, and this whole thing is something I'm truly just passionate about. It isn't some hidden weird company trying to beat the market. I personally just enjoy the science, the art, the coding, the engineering, everything that comes with this project. Doing this gives me purpose, and I couldn't ask for more. <br>Unfortunately, the world can ask for more. A lot more. (I mean money). This whole project is paid for by me right now. I would love to take this further, but realistically it's hard to go at the pace I want - given the financial situation. Development is slow, but it is ongoing. <br>You don't have to sponsor me if you want to support me because following along with me as I try to make this thing real is enough <3 </p>
-                    <div class="center-button">
-                        <a href="https://github.com/sponsors/MikeyBoi-N" class="sponsor-button">Sponsor Me!</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer></footer>
-
-    <script src="navbar.js"></script>
-    <script src="footer.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Typewriter effect
-            const typewriterElement = document.getElementById('typewriter');
-            const titleContainer = document.getElementById('title-container');
-            const cardsContainer = document.getElementById('cards-container');
-            const text = "FUTURE PLANS";
-            let index = 0;
-
-            function type() {
-                if (index < text.length) {
-                    typewriterElement.textContent += text.charAt(index);
-                    index++;
-                    setTimeout(type, 120);
-                } else {
-                    // Typing is complete, wait 1 second then fade out title and show cards
-                    setTimeout(() => {
-                        titleContainer.classList.add('fade-out');
-                        
-                        // After title fades out, show cards
-                        setTimeout(() => {
-                            cardsContainer.classList.add('show');
-                        }, 1000); // Wait for fade-out to complete
-                    }, 1000); // Wait 1 second after typing completes
-                }
-            }
-
-            type();
-
-            // Section visibility observer
-            const sections = document.querySelectorAll('.technology-section');
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-        });
-    </script>
-</body>
+<body><a href="index.html#maker">Spectril</a></body>
 </html>
